@@ -34,8 +34,8 @@
             this.phone = new System.Windows.Forms.Label();
             this.btn_AddMembers = new System.Windows.Forms.Button();
             this.tbName = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tbEmail = new System.Windows.Forms.TextBox();
+            this.tbPhone = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -82,7 +82,7 @@
             // 
             this.btn_AddMembers.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_AddMembers.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btn_AddMembers.Location = new System.Drawing.Point(265, 321);
+            this.btn_AddMembers.Location = new System.Drawing.Point(218, 324);
             this.btn_AddMembers.Name = "btn_AddMembers";
             this.btn_AddMembers.Size = new System.Drawing.Size(234, 56);
             this.btn_AddMembers.TabIndex = 4;
@@ -97,28 +97,29 @@
             this.tbName.Size = new System.Drawing.Size(212, 41);
             this.tbName.TabIndex = 5;
             // 
-            // textBox2
+            // tbEmail
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(230, 185);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 41);
-            this.textBox2.TabIndex = 6;
+            this.tbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbEmail.Location = new System.Drawing.Point(230, 167);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.Size = new System.Drawing.Size(212, 41);
+            this.tbEmail.TabIndex = 6;
             // 
-            // textBox3
+            // tbPhone
             // 
-            this.textBox3.Location = new System.Drawing.Point(230, 243);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 7;
+            this.tbPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPhone.Location = new System.Drawing.Point(230, 230);
+            this.tbPhone.Name = "tbPhone";
+            this.tbPhone.Size = new System.Drawing.Size(212, 41);
+            this.tbPhone.TabIndex = 7;
             // 
             // Add_members
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.tbPhone);
+            this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.btn_AddMembers);
             this.Controls.Add(this.phone);
@@ -140,7 +141,7 @@
         private System.Windows.Forms.Label phone;
         private System.Windows.Forms.Button btn_AddMembers;
         private System.Windows.Forms.TextBox tbName;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbEmail;
+        private System.Windows.Forms.TextBox tbPhone;
     }
 }
