@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,8 @@ namespace Travel_expense_Splitter
         }
 
         private void btn_AddMembers_Click(object sender, EventArgs e)
-        {
+        { 
+           
             MessageBox.Show("Member Added Successfully !!!");
             Dashbord dash = new Dashbord();
             dash.Show();

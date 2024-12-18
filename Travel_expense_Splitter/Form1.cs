@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace Travel_expense_Splitter
@@ -32,23 +26,68 @@ namespace Travel_expense_Splitter
             string username;
             string password;
 
-            username = TBUser.Text;
-            password = TBPass.Text;
+            
 
-            if (username == "Admin" && password == "Admin")
-            {
-                MessageBox.Show("Login Successful !!!!");
-                Dashbord dash = new Dashbord();
-                dash.Show();
-                this.Hide();
+            string connectionString = "Server=CHINMAY-N3P5PKK\\SQLEXPRESS;Database=travel_expenses;Integrated Security=True;";
 
-            }
-            else
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                MessageBox.Show("Invalid Username OR Password");
-                TBUser.Text = "";
-                TBPass.Text = "";
+                try
+                {
+                    conn.Open();
+
+                    //MessageBox.Show("Connection Successful !!!");
+
+                    username = TBUser.Text;
+                    password = TBPass.Text;
+
+                    string query = "SELECT COUNT(*) FROM login_table WHERE username = @username AND pass = @password ";
+
+                    using (SqlCommand command = new SqlCommand(query, conn))
+                    {
+                        command.Parameters.AddWithValue("@username", username);
+                        command.Parameters.AddWithValue("@password", password);
+
+                        int userCount = Convert.ToInt32(command.ExecuteScalar());
+
+                        if (userCount > 0)
+                        {
+                            MessageBox.Show("Login successful!");
+                            Dashbord dash = new Dashbord();
+                            dash.Show();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Invalid Username OR Password");
+                            TBUser.Text = "";
+                            TBPass.Text = "";
+                        }
+                    }
+
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show($"Database error: {ex.Message}");
+                    TBUser.Text = "";
+                    TBPass.Text = "";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred: {ex.Message}");
+                    TBUser.Text = "";
+                    TBPass.Text = "";
+                }
+                finally
+                {
+                    // Ensure the connection is closed
+                    if (conn.State == System.Data.ConnectionState.Open)
+                    {
+                        conn.Close();
+                    }
+                }
             }
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
