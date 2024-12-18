@@ -16,5 +16,39 @@ namespace Travel_expense_Splitter
         {
             InitializeComponent();
         }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TBUser_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bthLogin_Click_1(object sender, EventArgs e)
+        {
+            string username;
+            string password;
+
+            username = TBUser.Text;
+            password = TBPass.Text;
+
+            if (username == "Admin" && password == "Admin")
+            {
+                MessageBox.Show("Login Successful !!!!");
+                Dashbord dash = new Dashbord();
+                dash.Show();
+                this.Hide();
+
+            }
+            else
+            {
+                MessageBox.Show("Invalid Username OR Password");
+                TBUser.Text = "";
+                TBPass.Text = "";
+            }
+        }
     }
 }
