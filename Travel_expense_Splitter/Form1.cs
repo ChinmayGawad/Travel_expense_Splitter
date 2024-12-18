@@ -50,5 +50,10 @@ namespace Travel_expense_Splitter
                 TBPass.Text = "";
             }
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
