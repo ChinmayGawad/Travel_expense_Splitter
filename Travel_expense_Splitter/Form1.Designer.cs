@@ -107,7 +107,7 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Location = new System.Drawing.Point(486, 31);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(411, 45);
+            this.label2.Size = new System.Drawing.Size(399, 44);
             this.label2.TabIndex = 11;
             this.label2.Text = "Travel Expense Splitter";
             // 
