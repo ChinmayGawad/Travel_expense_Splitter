@@ -42,9 +42,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(257, 9);
+            this.label1.Location = new System.Drawing.Point(193, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(278, 46);
+            this.label1.Size = new System.Drawing.Size(227, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "Add Members";
             // 
@@ -52,9 +53,10 @@
             // 
             this.member_name.AutoSize = true;
             this.member_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.member_name.Location = new System.Drawing.Point(76, 111);
+            this.member_name.Location = new System.Drawing.Point(57, 90);
+            this.member_name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.member_name.Name = "member_name";
-            this.member_name.Size = new System.Drawing.Size(116, 36);
+            this.member_name.Size = new System.Drawing.Size(96, 29);
             this.member_name.TabIndex = 1;
             this.member_name.Text = " Name :";
             // 
@@ -62,9 +64,10 @@
             // 
             this.Email.AutoSize = true;
             this.Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Email.Location = new System.Drawing.Point(88, 172);
+            this.Email.Location = new System.Drawing.Point(66, 140);
+            this.Email.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Email.Name = "Email";
-            this.Email.Size = new System.Drawing.Size(104, 36);
+            this.Email.Size = new System.Drawing.Size(86, 29);
             this.Email.TabIndex = 2;
             this.Email.Text = "Email :";
             // 
@@ -72,9 +75,10 @@
             // 
             this.phone.AutoSize = true;
             this.phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phone.Location = new System.Drawing.Point(76, 230);
+            this.phone.Location = new System.Drawing.Point(57, 187);
+            this.phone.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.phone.Name = "phone";
-            this.phone.Size = new System.Drawing.Size(118, 36);
+            this.phone.Size = new System.Drawing.Size(95, 29);
             this.phone.TabIndex = 3;
             this.phone.Text = "Phone :";
             // 
@@ -82,9 +86,10 @@
             // 
             this.btn_AddMembers.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_AddMembers.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btn_AddMembers.Location = new System.Drawing.Point(218, 324);
+            this.btn_AddMembers.Location = new System.Drawing.Point(200, 268);
+            this.btn_AddMembers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_AddMembers.Name = "btn_AddMembers";
-            this.btn_AddMembers.Size = new System.Drawing.Size(234, 56);
+            this.btn_AddMembers.Size = new System.Drawing.Size(176, 46);
             this.btn_AddMembers.TabIndex = 4;
             this.btn_AddMembers.Text = "Add Member";
             this.btn_AddMembers.UseVisualStyleBackColor = true;
@@ -92,32 +97,35 @@
             // tbName
             // 
             this.tbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbName.Location = new System.Drawing.Point(230, 106);
+            this.tbName.Location = new System.Drawing.Point(172, 86);
+            this.tbName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(212, 41);
+            this.tbName.Size = new System.Drawing.Size(160, 35);
             this.tbName.TabIndex = 5;
             // 
             // tbEmail
             // 
             this.tbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbEmail.Location = new System.Drawing.Point(230, 167);
+            this.tbEmail.Location = new System.Drawing.Point(172, 136);
+            this.tbEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(212, 41);
+            this.tbEmail.Size = new System.Drawing.Size(160, 35);
             this.tbEmail.TabIndex = 6;
             // 
             // tbPhone
             // 
             this.tbPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPhone.Location = new System.Drawing.Point(230, 230);
+            this.tbPhone.Location = new System.Drawing.Point(172, 187);
+            this.tbPhone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbPhone.Name = "tbPhone";
-            this.tbPhone.Size = new System.Drawing.Size(212, 41);
+            this.tbPhone.Size = new System.Drawing.Size(160, 35);
             this.tbPhone.TabIndex = 7;
             // 
             // Add_members
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.tbPhone);
             this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.tbName);
@@ -126,6 +134,7 @@
             this.Controls.Add(this.Email);
             this.Controls.Add(this.member_name);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Add_members";
             this.Text = "Add_members";
             this.ResumeLayout(false);
