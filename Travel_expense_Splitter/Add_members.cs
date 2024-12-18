@@ -16,5 +16,14 @@ namespace Travel_expense_Splitter
         {
             InitializeComponent();
         }
+
+        private void btn_AddMembers_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Member Added Successfully !!!");
+            Dashbord dash = new Dashbord();
+            dash.Show();
+            this.Close();
+
+        }
     }
 }

@@ -30,7 +30,9 @@ namespace Travel_expense_Splitter
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Add_members add_Members = new Add_members();
+            add_Members.Show();
+            this.Close();
         }
     }
 }
