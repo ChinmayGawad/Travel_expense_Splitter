@@ -169,7 +169,7 @@
             this.panel2.AutoScroll = true;
             this.panel2.Location = new System.Drawing.Point(265, 438);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(588, 169);
+            this.panel2.Size = new System.Drawing.Size(588, 152);
             this.panel2.TabIndex = 24;
             // 
             // Form3
