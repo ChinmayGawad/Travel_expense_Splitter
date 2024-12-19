@@ -34,5 +34,10 @@ namespace Travel_expense_Splitter
             add_Members.Show();
             this.Close();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

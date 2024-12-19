@@ -43,7 +43,7 @@
             // bthLogin
             // 
             this.bthLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bthLogin.Location = new System.Drawing.Point(156, 311);
+            this.bthLogin.Location = new System.Drawing.Point(168, 299);
             this.bthLogin.Name = "bthLogin";
             this.bthLogin.Size = new System.Drawing.Size(170, 56);
             this.bthLogin.TabIndex = 9;
@@ -72,7 +72,7 @@
             // 
             this.lbPassword.AutoSize = true;
             this.lbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPassword.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.lbPassword.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lbPassword.Location = new System.Drawing.Point(61, 217);
             this.lbPassword.Name = "lbPassword";
             this.lbPassword.Size = new System.Drawing.Size(163, 36);
@@ -83,7 +83,7 @@
             // 
             this.lbUsername.AutoSize = true;
             this.lbUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbUsername.ForeColor = System.Drawing.Color.White;
+            this.lbUsername.ForeColor = System.Drawing.Color.Black;
             this.lbUsername.Location = new System.Drawing.Point(58, 135);
             this.lbUsername.Name = "lbUsername";
             this.lbUsername.Size = new System.Drawing.Size(166, 36);
@@ -104,7 +104,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(486, 31);
+            this.label2.Location = new System.Drawing.Point(469, 31);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(399, 44);
             this.label2.TabIndex = 11;
@@ -113,7 +113,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Bisque;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.lbUsername);
             this.panel2.Controls.Add(this.TBUser);
             this.panel2.Controls.Add(this.bthLogin);
@@ -128,7 +128,7 @@
             // 
             this.BackColor = System.Drawing.Color.MistyRose;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1269, 776);
+            this.ClientSize = new System.Drawing.Size(1235, 774);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft YaHei", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
