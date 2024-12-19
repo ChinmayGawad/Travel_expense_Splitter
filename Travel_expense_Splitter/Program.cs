@@ -16,7 +16,7 @@ namespace Travel_expense_Splitter
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Add_members());
+            Application.Run(new Dashbord());
         }
     }
 }

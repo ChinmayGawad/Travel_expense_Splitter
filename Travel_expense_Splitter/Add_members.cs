@@ -74,5 +74,15 @@ namespace Travel_expense_Splitter
 
             }
         }
+
+        private void phone_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
