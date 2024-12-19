@@ -19,13 +19,60 @@ namespace Travel_expense_Splitter
         }
 
         private void btn_AddMembers_Click(object sender, EventArgs e)
-        { 
-           
-            MessageBox.Show("Member Added Successfully !!!");
-            Dashbord dash = new Dashbord();
-            dash.Show();
-            this.Close();
+        {
+            string member_name = tbName.Text;
+            string mem_email = tbEmail.Text;
+            string mem_phone = tbPhone.Text;
 
+            if (!int.TryParse(mem_phone, out int phoneNo))
+            {
+                MessageBox.Show("Please enter a valid phone number.");
+                return; // Exit the method if conversion fails
+            }
+
+            string connectionString = "Server=CHINMAY-N3P5PKK\\SQLEXPRESS;Database=travel_expenses;Integrated Security=True;";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "insert into Members (Member_Name,Email_ID,Phone)values(@member_name,@mem_email,@phoneNo)";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@member_name", member_name);
+                        cmd.Parameters.AddWithValue("@mem_email", mem_email);
+                        cmd.Parameters.AddWithValue("@phoneNo", phoneNo);
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Member added successfully!");
+                            Dashbord dash = new Dashbord();
+                            dash.Show();
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed To Add Member ");
+                        }
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    Console.WriteLine($"Database error: {ex.Message}");
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"An error occurred: {ex.Message}");
+                }
+
+                
+               
+
+            }
         }
     }
 }
