@@ -35,5 +35,12 @@ namespace Travel_expense_Splitter
                 panel2.Controls.Add(myCheckBox);
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Dashbord dashbord = new Dashbord();
+            dashbord.Show();
+            this.Hide();
+        }
     }
 }

@@ -41,6 +41,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -172,12 +173,23 @@
             this.panel2.Size = new System.Drawing.Size(588, 152);
             this.panel2.TabIndex = 24;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 103);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(94, 42);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Back";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MistyRose;
             this.ClientSize = new System.Drawing.Size(1223, 731);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBox1);
@@ -215,5 +227,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button1;
     }
 }

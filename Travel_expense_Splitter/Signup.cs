@@ -149,5 +149,52 @@ namespace Travel_expense_Splitter
             var emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
             return System.Text.RegularExpressions.Regex.IsMatch(email, emailPattern);
         }
+
+        private void label4_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Form1 login = new Form1();
+            login.Show();
+            this.Hide();
+        }
+
+        private void Signup_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbConfirmPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
