@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapter\ExpenseAdapter.cs" />
     <Compile Include="Add_members.cs">
       <SubType>Form</SubType>
     </Compile>
