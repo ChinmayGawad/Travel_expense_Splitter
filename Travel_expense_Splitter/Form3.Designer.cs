@@ -40,7 +40,7 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.PayerBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.flowLayout = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -165,13 +165,12 @@
             this.label3.TabIndex = 23;
             this.label3.Text = "Members sharing this expense :";
             // 
-            // panel2
+            // flowLayout
             // 
-            this.panel2.AutoScroll = true;
-            this.panel2.Location = new System.Drawing.Point(265, 438);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(588, 152);
-            this.panel2.TabIndex = 24;
+            this.flowLayout.Location = new System.Drawing.Point(274, 428);
+            this.flowLayout.Name = "flowLayout";
+            this.flowLayout.Size = new System.Drawing.Size(585, 163);
+            this.flowLayout.TabIndex = 24;
             // 
             // Form3
             // 
@@ -179,7 +178,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MistyRose;
             this.ClientSize = new System.Drawing.Size(1196, 748);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.flowLayout);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.PayerBox);
             this.Controls.Add(this.dateTimePicker1);
@@ -215,6 +214,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ComboBox PayerBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayout;
     }
 }

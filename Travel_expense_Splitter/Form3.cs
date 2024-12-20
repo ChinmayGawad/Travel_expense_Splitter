@@ -23,36 +23,8 @@ namespace Travel_expense_Splitter
 
         private void Form3_Load(object sender, EventArgs e)
         {
-
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    conn.Open();
-                    string query = "SELECT * FROM Members;";
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        DataTable ExpenseTable = new DataTable();
-                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                        adapter.Fill(ExpenseTable);
-
-                        foreach (DataRow row in ExpenseTable.Rows)
-                        {
-                            ExpenseAdapter _obj = new ExpenseAdapter();
-                            _obj.member_name = row["Member_Name"].ToString();
-                            _obj.Payer_id = Convert.ToInt32(row["Member_ID"]);
-                            _expenseList.Add(_obj);
-                            PayerBox.Items.Add(row["Member_Name"].ToString());
-
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Error fetching members: " + ex.Message);
-                }
-            }
+            LoadMembers();
+            LoadCheckBoxes();
         }
 
         private void btn_AddExpense_Click(object sender, EventArgs e)
@@ -73,13 +45,24 @@ namespace Travel_expense_Splitter
 
             }
 
+            List<int> checkedMemberIds = new List<int>();
+            foreach (Control control in flowLayout.Controls)
+            {
+                if (control is CheckBox checkBox && checkBox.Checked)
+                {
+                    int checkedMemberId = (int)checkBox.Tag; 
+                    checkedMemberIds.Add(checkedMemberId);
+                }
+            }
+
+            string checkedMembers = string.Join(",", checkedMemberIds);
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 try
                 {
                     
-                    string query = "insert into Expense (Description,Amount,Payer_ID,Date) values(@expense_name,@amount,@memberid,@dateTime);";
+                    string query = "insert into Expense (Description,Amount,Payer_ID,Date,CheckedMembers) values(@expense_name,@amount,@memberid,@dateTime,@checkedMembers);";
                     conn.Open();
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
@@ -87,6 +70,7 @@ namespace Travel_expense_Splitter
                         cmd.Parameters.AddWithValue("@amount", amount);
                         cmd.Parameters.AddWithValue("@memberid", memberid);
                         cmd.Parameters.AddWithValue("@dateTime", dateTime);
+                        cmd.Parameters.AddWithValue("@checkedMembers", checkedMembers);
 
                         int rowsAffected = cmd.ExecuteNonQuery();
                         if (rowsAffected > 0)
@@ -109,6 +93,70 @@ namespace Travel_expense_Splitter
 
             }
         }
+        private void LoadCheckBoxes()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT Member_ID, Member_Name FROM Members;";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            CheckBox checkBox = new CheckBox();
+                            checkBox.Text = reader["Member_Name"].ToString();
+                            checkBox.Tag = reader["Member_ID"];
+                            checkBox.AutoSize = true;
+
+                            // Add the checkbox to the FlowLayoutPanel
+                            flowLayout.Controls.Add(checkBox);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error loading checkboxes: " + ex.Message);
+                }
+            }
+        }
+        private void LoadMembers()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT * FROM Members;";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        DataTable ExpenseTable = new DataTable();
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        adapter.Fill(ExpenseTable);
+
+                        foreach (DataRow row in ExpenseTable.Rows)
+                        {
+                            ExpenseAdapter _obj = new ExpenseAdapter();
+                            _obj.member_name = row["Member_Name"].ToString();
+                            _obj.Payer_id = Convert.ToInt32(row["Member_ID"]);
+                            _expenseList.Add(_obj);
+                            PayerBox.Items.Add(row["Member_Name"].ToString());
+
+                        }
+
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error fetching members: " + ex.Message);
+                }
+            }
+        }
+
+
     }
 }
 
