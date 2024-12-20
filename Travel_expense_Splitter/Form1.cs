@@ -94,5 +94,17 @@ namespace Travel_expense_Splitter
         {
 
         }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Signup signup = new Signup();
+            signup.Show();
+            this.Hide();    
+        }
     }
 }

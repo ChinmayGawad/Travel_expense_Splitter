@@ -32,18 +32,23 @@
             this.TBPass = new System.Windows.Forms.TextBox();
             this.TBUser = new System.Windows.Forms.TextBox();
             this.lbPassword = new System.Windows.Forms.Label();
-            this.lbUsername = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // bthLogin
             // 
+            this.bthLogin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bthLogin.FlatAppearance.BorderSize = 5;
+            this.bthLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.bthLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bthLogin.Location = new System.Drawing.Point(168, 299);
+            this.bthLogin.Location = new System.Drawing.Point(164, 247);
             this.bthLogin.Name = "bthLogin";
             this.bthLogin.Size = new System.Drawing.Size(170, 56);
             this.bthLogin.TabIndex = 9;
@@ -54,7 +59,7 @@
             // TBPass
             // 
             this.TBPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBPass.Location = new System.Drawing.Point(230, 217);
+            this.TBPass.Location = new System.Drawing.Point(231, 169);
             this.TBPass.Name = "TBPass";
             this.TBPass.PasswordChar = '*';
             this.TBPass.Size = new System.Drawing.Size(206, 41);
@@ -63,7 +68,7 @@
             // TBUser
             // 
             this.TBUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBUser.Location = new System.Drawing.Point(230, 132);
+            this.TBUser.Location = new System.Drawing.Point(231, 84);
             this.TBUser.Name = "TBUser";
             this.TBUser.Size = new System.Drawing.Size(206, 41);
             this.TBUser.TabIndex = 7;
@@ -73,22 +78,11 @@
             this.lbPassword.AutoSize = true;
             this.lbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPassword.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbPassword.Location = new System.Drawing.Point(61, 217);
+            this.lbPassword.Location = new System.Drawing.Point(62, 169);
             this.lbPassword.Name = "lbPassword";
             this.lbPassword.Size = new System.Drawing.Size(163, 36);
             this.lbPassword.TabIndex = 6;
             this.lbPassword.Text = "Password :";
-            // 
-            // lbUsername
-            // 
-            this.lbUsername.AutoSize = true;
-            this.lbUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbUsername.ForeColor = System.Drawing.Color.Black;
-            this.lbUsername.Location = new System.Drawing.Point(58, 135);
-            this.lbUsername.Name = "lbUsername";
-            this.lbUsername.Size = new System.Drawing.Size(166, 36);
-            this.lbUsername.TabIndex = 5;
-            this.lbUsername.Text = "Username :";
             // 
             // panel1
             // 
@@ -96,7 +90,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(1, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1272, 97);
+            this.panel1.Size = new System.Drawing.Size(1373, 97);
             this.panel1.TabIndex = 10;
             // 
             // label2
@@ -112,23 +106,62 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.Bisque;
+            this.panel2.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.lbUsername);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.TBUser);
             this.panel2.Controls.Add(this.bthLogin);
             this.panel2.Controls.Add(this.lbPassword);
             this.panel2.Controls.Add(this.TBPass);
-            this.panel2.Location = new System.Drawing.Point(390, 234);
+            this.panel2.Location = new System.Drawing.Point(463, 219);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(508, 454);
             this.panel2.TabIndex = 11;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 5;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(164, 354);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(170, 56);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Sign Up";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(62, 84);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(166, 36);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Username :";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(127, 322);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(247, 29);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Do not have account ?";
             // 
             // Form1
             // 
-            this.BackColor = System.Drawing.Color.MistyRose;
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1235, 774);
+            this.ClientSize = new System.Drawing.Size(1355, 774);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft YaHei", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -154,10 +187,12 @@
         private System.Windows.Forms.TextBox TBPass;
         private System.Windows.Forms.TextBox TBUser;
         private System.Windows.Forms.Label lbPassword;
-        private System.Windows.Forms.Label lbUsername;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label3;
     }
 }
 
