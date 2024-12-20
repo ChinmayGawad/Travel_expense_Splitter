@@ -41,7 +41,7 @@ namespace Travel_expense_Splitter
                     username = TBUser.Text;
                     password = TBPass.Text;
 
-                    string query = "SELECT COUNT(*) FROM login_table WHERE username = @username AND pass = @password ";
+                    string query = "SELECT COUNT(*) FROM login_table WHERE (username = @username or Email = @username) AND pass = @password ";
 
                     using (SqlCommand command = new SqlCommand(query, conn))
                     {
