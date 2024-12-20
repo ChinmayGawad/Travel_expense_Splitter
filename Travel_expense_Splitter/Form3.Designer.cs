@@ -172,16 +172,6 @@
             this.flowLayout.Size = new System.Drawing.Size(585, 163);
             this.flowLayout.TabIndex = 24;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 103);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 42);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Back";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -225,5 +215,6 @@
         private System.Windows.Forms.ComboBox PayerBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.FlowLayoutPanel flowLayout;
+        private object button1;
     }
 }
