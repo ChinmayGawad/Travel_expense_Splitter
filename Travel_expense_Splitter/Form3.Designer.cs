@@ -215,5 +215,6 @@
         private System.Windows.Forms.ComboBox PayerBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.FlowLayoutPanel flowLayout;
+        private object button1;
     }
 }
