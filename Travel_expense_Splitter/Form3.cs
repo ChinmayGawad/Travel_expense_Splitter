@@ -156,7 +156,12 @@ namespace Travel_expense_Splitter
             }
         }
 
-
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Dashbord dashbord = new Dashbord();
+            dashbord.Show();
+            this.Close();
+        }
     }
 }
 

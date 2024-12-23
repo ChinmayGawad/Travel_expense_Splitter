@@ -106,5 +106,22 @@ namespace Travel_expense_Splitter
             signup.Show();
             this.Hide();    
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Signup signup = new Signup();
+            signup.Show();
+            this.Hide();
+        }
     }
 }

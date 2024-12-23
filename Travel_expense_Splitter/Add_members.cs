@@ -84,5 +84,12 @@ namespace Travel_expense_Splitter
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Dashbord dashboard = new Dashbord();
+            dashboard.Show();
+            this.Hide();
+        }
     }
 }
