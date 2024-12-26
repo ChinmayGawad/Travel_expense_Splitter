@@ -75,7 +75,7 @@
             // 
             this.tbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbName.Location = new System.Drawing.Point(80, 127);
-            this.tbName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tbName.Margin = new System.Windows.Forms.Padding(6);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(703, 38);
             this.tbName.TabIndex = 5;
@@ -87,7 +87,7 @@
             this.btnSignup.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSignup.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnSignup.Location = new System.Drawing.Point(272, 664);
-            this.btnSignup.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnSignup.Margin = new System.Windows.Forms.Padding(6);
             this.btnSignup.Name = "btnSignup";
             this.btnSignup.Size = new System.Drawing.Size(336, 60);
             this.btnSignup.TabIndex = 9;
@@ -122,7 +122,7 @@
             this.panel1.Controls.Add(this.btnSignup);
             this.panel1.Controls.Add(this.tbName);
             this.panel1.Location = new System.Drawing.Point(935, 207);
-            this.panel1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel1.Margin = new System.Windows.Forms.Padding(6);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(869, 891);
             this.panel1.TabIndex = 12;
@@ -145,7 +145,7 @@
             // 
             this.tbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbEmail.Location = new System.Drawing.Point(80, 253);
-            this.tbEmail.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tbEmail.Margin = new System.Windows.Forms.Padding(6);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(703, 38);
             this.tbEmail.TabIndex = 17;
@@ -155,7 +155,7 @@
             // 
             this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPassword.Location = new System.Drawing.Point(80, 394);
-            this.tbPassword.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(6);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(703, 38);
             this.tbPassword.TabIndex = 16;
@@ -165,7 +165,7 @@
             // 
             this.tbConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbConfirmPassword.Location = new System.Drawing.Point(80, 536);
-            this.tbConfirmPassword.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tbConfirmPassword.Margin = new System.Windows.Forms.Padding(6);
             this.tbConfirmPassword.Name = "tbConfirmPassword";
             this.tbConfirmPassword.Size = new System.Drawing.Size(703, 38);
             this.tbConfirmPassword.TabIndex = 15;
@@ -214,7 +214,7 @@
             this.panel2.BackColor = System.Drawing.Color.Black;
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(-14, -2);
-            this.panel2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel2.Margin = new System.Windows.Forms.Padding(6);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(2692, 159);
             this.panel2.TabIndex = 13;
@@ -228,7 +228,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Signup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Signup";
