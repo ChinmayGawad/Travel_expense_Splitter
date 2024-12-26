@@ -140,5 +140,23 @@
   <ItemGroup>
     <None Include="Resources\Green Full Photo Forest Desktop Wallpaper.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Green Full Photo Forest Desktop Wallpaper %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Green Full Photo Forest Desktop Wallpaper %282%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Green Full Photo Forest Desktop Wallpaper %283%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Green Full Photo Forest Desktop Wallpaper %284%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Green Full Photo Forest Desktop Wallpaper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Green Full Photo Forest Desktop Wallpaper %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

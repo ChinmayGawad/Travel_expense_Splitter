@@ -51,7 +51,7 @@
             this.tbAmount.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbAmount.Location = new System.Drawing.Point(93, 180);
-            this.tbAmount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbAmount.Margin = new System.Windows.Forms.Padding(2);
             this.tbAmount.Name = "tbAmount";
             this.tbAmount.Size = new System.Drawing.Size(416, 35);
             this.tbAmount.TabIndex = 18;
@@ -61,7 +61,7 @@
             this.tbName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbName.Location = new System.Drawing.Point(93, 98);
-            this.tbName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbName.Margin = new System.Windows.Forms.Padding(2);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(416, 35);
             this.tbName.TabIndex = 17;
@@ -74,7 +74,7 @@
             this.btn_AddExpense.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_AddExpense.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_AddExpense.Location = new System.Drawing.Point(225, 582);
-            this.btn_AddExpense.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_AddExpense.Margin = new System.Windows.Forms.Padding(2);
             this.btn_AddExpense.Name = "btn_AddExpense";
             this.btn_AddExpense.Size = new System.Drawing.Size(176, 46);
             this.btn_AddExpense.TabIndex = 16;
@@ -142,7 +142,7 @@
             this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Location = new System.Drawing.Point(93, 263);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(416, 35);
             this.dateTimePicker1.TabIndex = 21;
@@ -154,7 +154,7 @@
             this.PayerBox.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PayerBox.FormattingEnabled = true;
             this.PayerBox.Location = new System.Drawing.Point(93, 343);
-            this.PayerBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PayerBox.Margin = new System.Windows.Forms.Padding(2);
             this.PayerBox.Name = "PayerBox";
             this.PayerBox.Size = new System.Drawing.Size(416, 35);
             this.PayerBox.TabIndex = 22;
@@ -178,7 +178,7 @@
             this.flowLayout.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.flowLayout.BackColor = System.Drawing.Color.Transparent;
             this.flowLayout.Location = new System.Drawing.Point(83, 436);
-            this.flowLayout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flowLayout.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayout.Name = "flowLayout";
             this.flowLayout.Size = new System.Drawing.Size(439, 132);
             this.flowLayout.TabIndex = 24;
@@ -199,10 +199,12 @@
             // 
             // button2
             // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button2.BackColor = System.Drawing.Color.Transparent;
             this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Location = new System.Drawing.Point(11, 11);
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.Location = new System.Drawing.Point(12, 11);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(58, 54);
@@ -213,6 +215,7 @@
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btn_AddExpense);
             this.panel1.Controls.Add(this.flowLayout);
@@ -235,12 +238,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MistyRose;
-            this.BackgroundImage = global::Travel_expense_Splitter.Properties.Resources.Green_Full_Photo_Forest_Desktop_Wallpaper;
+            this.BackgroundImage = global::Travel_expense_Splitter.Properties.Resources.Green_Full_Photo_Forest_Desktop_Wallpaper__1_1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1250, 750);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form3";
             this.Text = " ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
