@@ -24,9 +24,9 @@ namespace Travel_expense_Splitter
             if (string.IsNullOrEmpty(UserSession.LoggedInUsername))
             {
                 MessageBox.Show("User is not logged in.");
-                Dashbord dashbord = new Dashbord();
+             /*   Dashbord dashbord = new Dashbord();
                 dashbord.Show();
-                this.Close();
+                this.Close();*/
                 return;
             }
 
@@ -128,7 +128,10 @@ namespace Travel_expense_Splitter
                             {
                                 Text = reader["Member_Name"].ToString(),
                                 Tag = reader["Member_ID"],
-                                AutoSize = true
+                                AutoSize = true,
+                                Margin = new Padding(10),
+                                Font = new Font("Times New Roman", 14)
+
                             };
 
                             // Add the checkbox to the FlowLayoutPanel
