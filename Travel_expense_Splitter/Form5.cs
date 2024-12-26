@@ -8,58 +8,42 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Travel_expense_Splitter
 {
-    public partial class Signup : Form
+    public partial class Form5 : Form
     {
-        public Signup()
+        public Form5()
         {
             InitializeComponent();
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.Show();
+            this.Hide();
+        }
+
+        private void Form5_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private bool IsValidEmail(string email)
         {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            Form1 login= new Form1();
-            login.Show();
-            this.Close();
+            // Simple regex for email validation
+            var emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            return System.Text.RegularExpressions.Regex.IsMatch(email, emailPattern);
         }
 
         private void btnSignup_Click(object sender, EventArgs e)
+
         {
             string name = tbName.Text.Trim();
-            string email= tbEmail.Text.Trim();
-            string password= tbPassword.Text.Trim();
+            string email = tbEmail.Text.Trim();
+            string password = tbPassword.Text.Trim();
             string confirmpassword = tbConfirmPassword.Text.Trim();
 
 
@@ -108,7 +92,7 @@ namespace Travel_expense_Splitter
 
             string connectionString = "Server=CHINMAY-N3P5PKK\\SQLEXPRESS;Database=travel_expenses;Integrated Security=True;";
 
-            using (SqlConnection conn =new SqlConnection(connectionString))
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 try
                 {
@@ -118,7 +102,7 @@ namespace Travel_expense_Splitter
                     {
                         cmd.Parameters.AddWithValue("@name", name);
                         cmd.Parameters.AddWithValue("@email", email);
-                        cmd.Parameters.AddWithValue ("@Password", password);
+                        cmd.Parameters.AddWithValue("@Password", password);
 
                         int rowsAffected = cmd.ExecuteNonQuery();
                         if (rowsAffected > 0)
@@ -134,66 +118,14 @@ namespace Travel_expense_Splitter
                         }
                     }
 
+
                 }
-                catch (Exception ex) {
-                    MessageBox.Show("Error :" +ex.Message);
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error :" + ex.Message);
                 }
             }
 
-
-        }
-
-        private bool IsValidEmail(string email)
-        {
-            // Simple regex for email validation
-            var emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
-            return System.Text.RegularExpressions.Regex.IsMatch(email, emailPattern);
-        }
-
-        private void label4_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Form1 login = new Form1();
-            login.Show();
-            this.Hide();
-        }
-
-        private void Signup_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbEmail_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbPassword_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbConfirmPassword_TextChanged(object sender, EventArgs e)
-        {
 
         }
     }

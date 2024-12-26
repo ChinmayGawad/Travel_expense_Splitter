@@ -36,10 +36,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.SignUp = new System.Windows.Forms.LinkLabel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.SignUp = new System.Windows.Forms.LinkLabel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -52,7 +53,7 @@
             this.bthLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.bthLogin.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bthLogin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.bthLogin.Location = new System.Drawing.Point(52, 393);
+            this.bthLogin.Location = new System.Drawing.Point(52, 405);
             this.bthLogin.Name = "bthLogin";
             this.bthLogin.Size = new System.Drawing.Size(417, 49);
             this.bthLogin.TabIndex = 9;
@@ -80,8 +81,9 @@
             // lbPassword
             // 
             this.lbPassword.AutoSize = true;
+            this.lbPassword.BackColor = System.Drawing.Color.Transparent;
             this.lbPassword.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPassword.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbPassword.ForeColor = System.Drawing.Color.White;
             this.lbPassword.Location = new System.Drawing.Point(47, 286);
             this.lbPassword.Name = "lbPassword";
             this.lbPassword.Size = new System.Drawing.Size(99, 22);
@@ -112,8 +114,9 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.Thistle;
+            this.panel2.BackColor = System.Drawing.SystemColors.Control;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.linkLabel1);
             this.panel2.Controls.Add(this.SignUp);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.label4);
@@ -129,6 +132,19 @@
             this.panel2.TabIndex = 11;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // SignUp
+            // 
+            this.SignUp.AutoSize = true;
+            this.SignUp.BackColor = System.Drawing.Color.Transparent;
+            this.SignUp.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.SignUp.Location = new System.Drawing.Point(209, 506);
+            this.SignUp.Name = "SignUp";
+            this.SignUp.Size = new System.Drawing.Size(76, 25);
+            this.SignUp.TabIndex = 0;
+            this.SignUp.TabStop = true;
+            this.SignUp.Text = "SignUp";
+            this.SignUp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.SignUp_LinkClicked);
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
@@ -142,9 +158,10 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(134, 465);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(153, 479);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(228, 27);
             this.label4.TabIndex = 11;
@@ -154,8 +171,9 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(47, 197);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(99, 22);
@@ -163,27 +181,29 @@
             this.label3.Text = "Username :";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // SignUp
+            // linkLabel1
             // 
-            this.SignUp.AutoSize = true;
-            this.SignUp.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.SignUp.Location = new System.Drawing.Point(209, 494);
-            this.SignUp.Name = "SignUp";
-            this.SignUp.Size = new System.Drawing.Size(76, 25);
-            this.SignUp.TabIndex = 0;
-            this.SignUp.TabStop = true;
-            this.SignUp.Text = "SignUp";
-            this.SignUp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.SignUp_LinkClicked);
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft YaHei", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.Location = new System.Drawing.Point(306, 361);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(163, 24);
+            this.linkLabel1.TabIndex = 12;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Forget Password ?";
             // 
             // Form1
             // 
             this.BackColor = System.Drawing.Color.MistyRose;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1807, 804);
+            this.ClientSize = new System.Drawing.Size(1770, 774);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft YaHei", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -212,6 +232,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.LinkLabel SignUp;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 
