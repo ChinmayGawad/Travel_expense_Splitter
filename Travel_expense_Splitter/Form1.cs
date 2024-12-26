@@ -119,7 +119,7 @@ namespace Travel_expense_Splitter
 
         private void SignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Signup signup = new Signup();
+            Form5 signup = new Form5();
             signup.Show();
             this.Hide();
         }
