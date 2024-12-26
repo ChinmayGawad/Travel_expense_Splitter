@@ -48,7 +48,7 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(458, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(267, 45);
+            this.label1.Size = new System.Drawing.Size(212, 36);
             this.label1.TabIndex = 0;
             this.label1.Text = "Add Members";
             // 
@@ -58,7 +58,7 @@
             this.member_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.member_name.Location = new System.Drawing.Point(329, 236);
             this.member_name.Name = "member_name";
-            this.member_name.Size = new System.Drawing.Size(116, 36);
+            this.member_name.Size = new System.Drawing.Size(96, 29);
             this.member_name.TabIndex = 1;
             this.member_name.Text = " Name :";
             // 
@@ -68,7 +68,7 @@
             this.Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Email.Location = new System.Drawing.Point(340, 298);
             this.Email.Name = "Email";
-            this.Email.Size = new System.Drawing.Size(104, 36);
+            this.Email.Size = new System.Drawing.Size(86, 29);
             this.Email.TabIndex = 2;
             this.Email.Text = "Email :";
             // 
@@ -78,7 +78,7 @@
             this.phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.phone.Location = new System.Drawing.Point(340, 364);
             this.phone.Name = "phone";
-            this.phone.Size = new System.Drawing.Size(118, 36);
+            this.phone.Size = new System.Drawing.Size(95, 29);
             this.phone.TabIndex = 3;
             this.phone.Text = "Phone :";
             this.phone.Click += new System.EventHandler(this.phone_Click);
@@ -104,7 +104,7 @@
             this.tbName.Location = new System.Drawing.Point(453, 232);
             this.tbName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(310, 41);
+            this.tbName.Size = new System.Drawing.Size(310, 35);
             this.tbName.TabIndex = 5;
             this.tbName.TextChanged += new System.EventHandler(this.tbName_TextChanged);
             // 
@@ -114,7 +114,7 @@
             this.tbEmail.Location = new System.Drawing.Point(453, 295);
             this.tbEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(310, 41);
+            this.tbEmail.Size = new System.Drawing.Size(310, 35);
             this.tbEmail.TabIndex = 6;
             // 
             // tbPhone
@@ -123,7 +123,7 @@
             this.tbPhone.Location = new System.Drawing.Point(453, 361);
             this.tbPhone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbPhone.Name = "tbPhone";
-            this.tbPhone.Size = new System.Drawing.Size(310, 41);
+            this.tbPhone.Size = new System.Drawing.Size(310, 35);
             this.tbPhone.TabIndex = 7;
             // 
             // panel1
@@ -152,9 +152,11 @@
             // 
             // Add_members
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MistyRose;
+            this.BackgroundImage = global::Travel_expense_Splitter.Properties.Resources.Green_Full_Photo_Forest_Desktop_Wallpaper;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1167, 700);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tbPhone);
