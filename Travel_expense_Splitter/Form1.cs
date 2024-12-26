@@ -92,7 +92,7 @@ namespace Travel_expense_Splitter
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            panel2.BackColor = System.Drawing.Color.FromArgb(120, 0, 0, 0);
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
