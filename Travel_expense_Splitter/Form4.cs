@@ -50,8 +50,7 @@ namespace Travel_expense_Splitter
                     l2.Enabled = false;
                     l2.Location = new Point(220, 5);
 
-                    tp1.Controls.Add(l1);
-                    tp1.Controls.Add(l2);
+                    
 
                     // Display checked members
                     Label l3 = new Label();
@@ -60,7 +59,24 @@ namespace Travel_expense_Splitter
                     l3.Location = new Point(10, 35);
                     l3.AutoSize = true;
 
+                    // Calculate share amount
+                    string[] memberIds = data.CheckedMembers.Split(',');
+                    int numberOfMembers = memberIds.Length;
+                    decimal shareAmount = data.Amount / numberOfMembers;
+
+                    Label l4 = new Label();
+                    l4.Text = "Each member's share: " + shareAmount.ToString("C");
+                    l4.Font = new Font("Times New Roman", 12, FontStyle.Bold);
+                    l4.Location = new Point(10, 65);
+                    l4.AutoSize = true;
+
+
+
+
+                    tp1.Controls.Add(l1);
+                    tp1.Controls.Add(l2);
                     tp1.Controls.Add(l3);
+                    tp1.Controls.Add(l4);
                 }
             }
         }
