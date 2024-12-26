@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using Travel_expense_Splitter.Adapter;
 
 namespace Travel_expense_Splitter
 {
@@ -39,13 +40,11 @@ namespace Travel_expense_Splitter
         }
 
         private void btnSignup_Click(object sender, EventArgs e)
-
         {
             string name = tbName.Text.Trim();
             string email = tbEmail.Text.Trim();
             string password = tbPassword.Text.Trim();
             string confirmpassword = tbConfirmPassword.Text.Trim();
-
 
             // Check for empty fields
             if (string.IsNullOrWhiteSpace(name))
@@ -90,43 +89,37 @@ namespace Travel_expense_Splitter
                 return;
             }
 
-            string connectionString = "Server=CHINMAY-N3P5PKK\\SQLEXPRESS;Database=travel_expenses;Integrated Security=True;";
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            try
             {
-                try
+                using (DatabaseHelper dbHelper = new DatabaseHelper())
                 {
-                    conn.Open();
-                    string query = "insert into login_table (username,Email,pass) values (@name,@email,@password);";
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    string query = "INSERT INTO login_table (username, Email, pass) VALUES (@name, @email, @password);";
+                    using (SqlCommand cmd = new SqlCommand(query, dbHelper.Connection))
                     {
                         cmd.Parameters.AddWithValue("@name", name);
                         cmd.Parameters.AddWithValue("@email", email);
-                        cmd.Parameters.AddWithValue("@Password", password);
+                        cmd.Parameters.AddWithValue("@password", password);
 
                         int rowsAffected = cmd.ExecuteNonQuery();
                         if (rowsAffected > 0)
                         {
-                            MessageBox.Show(" Sign Up Successfully!");
+                            MessageBox.Show("Sign Up Successfully!");
                             Form1 login = new Form1();
                             login.Show();
                             this.Hide();
                         }
                         else
                         {
-                            MessageBox.Show("Sign Up Failed Due to some reason please try again later !!!");
+                            MessageBox.Show("Sign Up Failed. Please try again later.");
                         }
                     }
-
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error :" + ex.Message);
                 }
             }
-
-
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
     }
 }
+

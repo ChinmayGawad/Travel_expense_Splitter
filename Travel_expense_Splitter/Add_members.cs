@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Travel_expense_Splitter.Adapter;
 
 namespace Travel_expense_Splitter
 {
@@ -30,16 +31,13 @@ namespace Travel_expense_Splitter
                 return; // Exit the method if conversion fails
             }
 
-            string connectionString = "Server=CHINMAY-N3P5PKK\\SQLEXPRESS;Database=travel_expenses;Integrated Security=True;";
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            try
             {
-                try
+                using (DatabaseHelper dbHelper = new DatabaseHelper())
                 {
-                    conn.Open();
-                    string query = "insert into Members (Member_Name,Email_ID,Phone)values(@member_name,@mem_email,@phoneNo)";
+                    string query = "INSERT INTO Members (Member_Name, Email_ID, Phone) VALUES (@member_name, @mem_email, @phoneNo)";
 
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    using (SqlCommand cmd = new SqlCommand(query, dbHelper.Connection))
                     {
                         cmd.Parameters.AddWithValue("@member_name", member_name);
                         cmd.Parameters.AddWithValue("@mem_email", mem_email);
@@ -55,23 +53,18 @@ namespace Travel_expense_Splitter
                         }
                         else
                         {
-                            MessageBox.Show("Failed To Add Member ");
+                            MessageBox.Show("Failed to add member.");
                         }
                     }
                 }
-                catch (SqlException ex)
-                {
-                    Console.WriteLine($"Database error: {ex.Message}");
-
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"An error occurred: {ex.Message}");
-                }
-
-                
-               
-
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"Database error: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
             }
         }
 
@@ -93,3 +86,4 @@ namespace Travel_expense_Splitter
         }
     }
 }
+
