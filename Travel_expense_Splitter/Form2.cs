@@ -53,5 +53,10 @@ namespace Travel_expense_Splitter
             viewBalance.Show();
             this.Hide();
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
