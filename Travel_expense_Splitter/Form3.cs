@@ -20,6 +20,7 @@ namespace Travel_expense_Splitter
 
         private void Form3_Load(object sender, EventArgs e)
         {
+            panel1.BackColor = Color.FromArgb(100,0,0,0);
             if (string.IsNullOrEmpty(UserSession.LoggedInUsername))
             {
                 MessageBox.Show("User is not logged in.");
@@ -191,6 +192,16 @@ namespace Travel_expense_Splitter
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Email_Click(object sender, EventArgs e)
         {
 
         }
