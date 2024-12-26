@@ -102,7 +102,7 @@ namespace Travel_expense_Splitter
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Signup signup = new Signup();
+            Form5 signup = new Form5();
             signup.Show();
             this.Hide();    
         }
