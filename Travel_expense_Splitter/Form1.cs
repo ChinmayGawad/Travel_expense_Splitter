@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using Travel_expense_Splitter.Adapter;
 
 namespace Travel_expense_Splitter
 {
@@ -26,24 +27,16 @@ namespace Travel_expense_Splitter
             string username;
             string password;
 
-            
-
-            string connectionString = "Server=CHINMAY-N3P5PKK\\SQLEXPRESS;Database=travel_expenses;Integrated Security=True;";
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            try
             {
-                try
+                using (DatabaseHelper dbHelper = new DatabaseHelper())
                 {
-                    conn.Open();
-
-                    //MessageBox.Show("Connection Successful !!!");
-
                     username = TBUser.Text;
                     password = TBPass.Text;
 
                     string query = "SELECT COUNT(*) FROM login_table WHERE (username = @username or Email = @username) AND pass = @password ";
 
-                    using (SqlCommand command = new SqlCommand(query, conn))
+                    using (SqlCommand command = new SqlCommand(query, dbHelper.Connection))
                     {
                         command.Parameters.AddWithValue("@username", username);
                         command.Parameters.AddWithValue("@password", password);
@@ -53,6 +46,7 @@ namespace Travel_expense_Splitter
                         if (userCount > 0)
                         {
                             MessageBox.Show("Login successful!");
+                            UserSession.LoggedInUsername = username;
                             Dashbord dash = new Dashbord();
                             dash.Show();
                             this.Hide();
@@ -64,30 +58,20 @@ namespace Travel_expense_Splitter
                             TBPass.Text = "";
                         }
                     }
-
-                }
-                catch (SqlException ex)
-                {
-                    MessageBox.Show($"Database error: {ex.Message}");
-                    TBUser.Text = "";
-                    TBPass.Text = "";
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"An error occurred: {ex.Message}");
-                    TBUser.Text = "";
-                    TBPass.Text = "";
-                }
-                finally
-                {
-                    // Ensure the connection is closed
-                    if (conn.State == System.Data.ConnectionState.Open)
-                    {
-                        conn.Close();
-                    }
                 }
             }
-
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"Database error: {ex.Message}");
+                TBUser.Text = "";
+                TBPass.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+                TBUser.Text = "";
+                TBPass.Text = "";
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -104,7 +88,7 @@ namespace Travel_expense_Splitter
         {
             Form5 signup = new Form5();
             signup.Show();
-            this.Hide();    
+            this.Hide();
         }
 
         private void label3_Click(object sender, EventArgs e)

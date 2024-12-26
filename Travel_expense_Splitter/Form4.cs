@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 using Travel_expense_Splitter.Adapter;
 
@@ -16,18 +17,24 @@ namespace Travel_expense_Splitter
 
         private void Form4_Load(object sender, EventArgs e)
         {
-            string connectionString = "Server=CHINMAY-N3P5PKK\\SQLEXPRESS;Database=travel_expenses;Integrated Security=True;";
 
-            using (DatabaseHelper dbHelper = new DatabaseHelper(connectionString))
+            
+
+            using (DatabaseHelper dbHelper = new DatabaseHelper())
             {
-                string query = @"SELECT mb.Member_ID, mb.Member_Name, Ex.Amount, Ex.CheckedMembers FROM Members mb JOIN Expense Ex ON Ex.Payer_ID = mb.Member_ID";
+                string query = @"SELECT mb.Member_ID, mb.Member_Name, Ex.Amount, Ex.CheckedMembers, lt.username 
+                                 FROM Members mb 
+                                 JOIN Expense Ex ON Ex.Payer_ID = mb.Member_ID
+                                 JOIN login_table lt ON Ex.Login_ID = lt.Login_ID";
                 SqlDataReader reader = dbHelper.ExecuteReader(query);
 
-                var memberData = new List<(int MemberId, string MemberName, int Amount, string CheckedMembers)>();
+
+
+                var memberData = new List<(int MemberId, string MemberName, int Amount, string CheckedMembers , string Username)>();
 
                 while (reader.Read())
                 {
-                    memberData.Add((reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.IsDBNull(3) ? string.Empty : reader.GetString(3)));
+                    memberData.Add((reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.IsDBNull(3) ? string.Empty : reader.GetString(3), reader.GetString(4)));
                 }
 
                 reader.Close();
@@ -38,6 +45,7 @@ namespace Travel_expense_Splitter
                     TabPage tp1 = new TabPage(data.MemberName);
                     tabControl1.TabPages.Add(tp1);
 
+
                     // Add controls to the tab
                     Label l1 = new Label();
                     l1.Text = "Total amount to be received";
@@ -46,7 +54,7 @@ namespace Travel_expense_Splitter
                     l1.AutoSize = true;
 
                     TextBox l2 = new TextBox();
-                    l2.Text = data.Amount.ToString("C"); // Format as currency
+                    l2.Text = data.Amount.ToString("C"); 
                     l2.Enabled = false;
                     l2.Location = new Point(220, 5);
 
@@ -65,10 +73,19 @@ namespace Travel_expense_Splitter
                     decimal shareAmount = data.Amount / numberOfMembers;
 
                     Label l4 = new Label();
-                    l4.Text = "Each member's share: " + shareAmount.ToString("C");
+                    l4.Text = "Amount to be paid by each member: " + shareAmount.ToString("C");
                     l4.Font = new Font("Times New Roman", 12, FontStyle.Bold);
                     l4.Location = new Point(10, 65);
                     l4.AutoSize = true;
+
+
+
+
+                    Label l5 = new Label();
+                    l5.Text = "Entry Done By: " + data.Username;
+                    l5.Font = new Font("Times New Roman", 12, FontStyle.Bold);
+                    l5.Location = new Point(10, 95);
+                    l5.AutoSize = true;
 
 
 
@@ -77,6 +94,7 @@ namespace Travel_expense_Splitter
                     tp1.Controls.Add(l2);
                     tp1.Controls.Add(l3);
                     tp1.Controls.Add(l4);
+                    tp1.Controls.Add(l5);
                 }
             }
         }
