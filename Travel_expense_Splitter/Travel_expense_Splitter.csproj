@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Adapter\DatabaseHelper.cs" />
     <Compile Include="Adapter\ExpenseAdapter.cs" />
+    <Compile Include="Adapter\UserSession.cs" />
     <Compile Include="Add_members.cs">
       <SubType>Form</SubType>
     </Compile>
