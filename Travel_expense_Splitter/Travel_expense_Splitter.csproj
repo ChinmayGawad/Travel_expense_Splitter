@@ -47,8 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapter\DatabaseHelper.cs" />
+    <Compile Include="Adapter\DatabaseOperations.cs" />
     <Compile Include="Adapter\ExpenseAdapter.cs" />
     <Compile Include="Adapter\UserSession.cs" />
+    <Compile Include="Adapter\ValidationHelper.cs" />
     <Compile Include="Add_members.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -31,12 +31,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,31 +81,16 @@
             this.panel1.Size = new System.Drawing.Size(538, 552);
             this.panel1.TabIndex = 2;
             // 
-            // textBox1
+            // button1
             // 
-            this.textBox1.Location = new System.Drawing.Point(26, 62);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(481, 38);
-            this.textBox1.TabIndex = 1;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(26, 317);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(481, 38);
-            this.textBox2.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(21, 278);
-            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(253, 27);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Confirm New Password :";
+            this.button1.BackColor = System.Drawing.Color.Blue;
+            this.button1.Location = new System.Drawing.Point(26, 425);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(481, 50);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Update Password";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox3
             // 
@@ -126,15 +111,31 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Enter New Password :";
             // 
-            // button1
+            // textBox2
             // 
-            this.button1.BackColor = System.Drawing.Color.Blue;
-            this.button1.Location = new System.Drawing.Point(26, 425);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(481, 50);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Update Password";
-            this.button1.UseVisualStyleBackColor = false;
+            this.textBox2.Location = new System.Drawing.Point(26, 317);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(481, 38);
+            this.textBox2.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(21, 278);
+            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(253, 27);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Confirm New Password :";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(26, 62);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(481, 38);
+            this.textBox1.TabIndex = 1;
             // 
             // Form6
             // 
@@ -145,7 +146,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Form6";
             this.Text = "Form6";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

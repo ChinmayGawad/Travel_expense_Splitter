@@ -21,12 +21,11 @@ namespace Travel_expense_Splitter
 
         private void Dashbord_Load(object sender, EventArgs e)
         {
-            DatabaseHelper databaseHelper = new DatabaseHelper();
-            string query = "select sum(Amount) from Expense";
-            int totalMembers = GetTotalMembers();
+            
+            int totalMembers = DatabaseOperations.GetTotalMembers();
             Total_Members.Text = totalMembers.ToString();
 
-            decimal total_Expense = GetTotalExpenses();
+            decimal total_Expense = DatabaseOperations.GetTotalExpenses();
             Total_Expenses.Text = total_Expense.ToString("C");
         }
 
@@ -65,35 +64,7 @@ namespace Travel_expense_Splitter
         {
 
         }
-        private int GetTotalMembers()
-        {
-            using (DatabaseHelper dbHelper = new DatabaseHelper())
-            {
-                string query = "SELECT COUNT(*) FROM Members";
-                using (SqlCommand cmd = new SqlCommand(query, dbHelper.Connection))
-                {
-                    return (int)cmd.ExecuteScalar();
-                }
-            }
-        }
-        private decimal GetTotalExpenses()
-        {
-            using (DatabaseHelper dbHelper = new DatabaseHelper())
-            {
-                string query = "SELECT SUM(Amount) FROM Expense";
-                using (SqlCommand cmd = new SqlCommand(query, dbHelper.Connection))
-                {
-                    object result = cmd.ExecuteScalar();
-                    if (result == DBNull.Value)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return Convert.ToDecimal(result);
-                    }
-                }
-            }
-        }
+      
+       
     }
 }
