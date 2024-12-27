@@ -99,7 +99,13 @@ namespace Travel_expense_Splitter
         {
             Form5 signup = new Form5();
             signup.Show();
-            this.Close();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Form6 pass = new Form6();
+            pass.Show();
+
         }
     }
 }

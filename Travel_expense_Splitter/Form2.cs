@@ -32,8 +32,8 @@ namespace Travel_expense_Splitter
             //int totalMembers = GetTotalMembers();
             //Total_Members.Text = totalMembers.ToString();
 
-            decimal total_Expense = DatabaseOperations.GetTotalExpenses();
-            Total_Expenses.Text = total_Expense.ToString("C");
+            //decimal total_Expense = DatabaseOperations.GetTotalExpenses();
+            //Total_Expenses.Text = total_Expense.ToString("C");
         }
 
         private void Total_Members_Click(object sender, EventArgs e)

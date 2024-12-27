@@ -36,11 +36,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.SignUp = new System.Windows.Forms.LinkLabel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -67,7 +67,7 @@
             this.TBPass.Location = new System.Drawing.Point(52, 317);
             this.TBPass.Name = "TBPass";
             this.TBPass.PasswordChar = '*';
-            this.TBPass.Size = new System.Drawing.Size(417, 41);
+            this.TBPass.Size = new System.Drawing.Size(417, 35);
             this.TBPass.TabIndex = 8;
             // 
             // TBUser
@@ -75,7 +75,7 @@
             this.TBUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBUser.Location = new System.Drawing.Point(52, 225);
             this.TBUser.Name = "TBUser";
-            this.TBUser.Size = new System.Drawing.Size(417, 41);
+            this.TBUser.Size = new System.Drawing.Size(417, 35);
             this.TBUser.TabIndex = 7;
             // 
             // lbPassword
@@ -86,7 +86,7 @@
             this.lbPassword.ForeColor = System.Drawing.Color.White;
             this.lbPassword.Location = new System.Drawing.Point(47, 286);
             this.lbPassword.Name = "lbPassword";
-            this.lbPassword.Size = new System.Drawing.Size(99, 22);
+            this.lbPassword.Size = new System.Drawing.Size(76, 19);
             this.lbPassword.TabIndex = 6;
             this.lbPassword.Text = "Password :";
             // 
@@ -103,17 +103,19 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Location = new System.Drawing.Point(599, 29);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(399, 44);
+            this.label2.Size = new System.Drawing.Size(326, 36);
             this.label2.TabIndex = 11;
             this.label2.Text = "Travel Expense Splitter";
             // 
             // panel2
             // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel2.BackColor = System.Drawing.SystemColors.Control;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.linkLabel1);
@@ -125,12 +127,25 @@
             this.panel2.Controls.Add(this.bthLogin);
             this.panel2.Controls.Add(this.lbPassword);
             this.panel2.Controls.Add(this.TBPass);
-            this.panel2.Location = new System.Drawing.Point(529, 159);
+            this.panel2.Location = new System.Drawing.Point(523, 104);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(2);
             this.panel2.Size = new System.Drawing.Size(514, 548);
             this.panel2.TabIndex = 11;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft YaHei", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.Location = new System.Drawing.Point(306, 361);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(137, 19);
+            this.linkLabel1.TabIndex = 12;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Forget Password ?";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // SignUp
             // 
@@ -139,7 +154,7 @@
             this.SignUp.Font = new System.Drawing.Font("Times New Roman", 13F);
             this.SignUp.Location = new System.Drawing.Point(209, 506);
             this.SignUp.Name = "SignUp";
-            this.SignUp.Size = new System.Drawing.Size(76, 25);
+            this.SignUp.Size = new System.Drawing.Size(62, 20);
             this.SignUp.TabIndex = 0;
             this.SignUp.TabStop = true;
             this.SignUp.Text = "SignUp";
@@ -163,7 +178,7 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(153, 479);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(228, 27);
+            this.label4.Size = new System.Drawing.Size(178, 21);
             this.label4.TabIndex = 11;
             this.label4.Text = "Do not have account ?";
             this.label4.Click += new System.EventHandler(this.label4_Click);
@@ -176,29 +191,17 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(47, 197);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 22);
+            this.label3.Size = new System.Drawing.Size(77, 19);
             this.label3.TabIndex = 5;
             this.label3.Text = "Username :";
             this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft YaHei", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(306, 361);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(163, 24);
-            this.linkLabel1.TabIndex = 12;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Forget Password ?";
             // 
             // Form1
             // 
             this.BackColor = System.Drawing.Color.MistyRose;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1770, 774);
+            this.ClientSize = new System.Drawing.Size(1604, 774);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft YaHei", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

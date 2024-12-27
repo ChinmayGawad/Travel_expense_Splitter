@@ -160,5 +160,11 @@
   <ItemGroup>
     <None Include="Resources\Green Full Photo Forest Desktop Wallpaper %281%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled design.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled_design-removebg-preview.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

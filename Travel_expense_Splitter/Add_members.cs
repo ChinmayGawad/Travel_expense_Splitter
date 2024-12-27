@@ -89,6 +89,13 @@ namespace Travel_expense_Splitter
         {
             panel1.BackColor = Color.FromArgb(100, 0, 0, 0);
         }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            Dashbord dashbord = new Dashbord();
+            dashbord.Show();
+            this.Hide();
+        }
     }
 }
 

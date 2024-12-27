@@ -21,19 +21,19 @@ namespace Travel_expense_Splitter
         private void Form3_Load(object sender, EventArgs e)
         {
             panel1.BackColor = Color.FromArgb(100, 0, 0, 0);
-            if (string.IsNullOrEmpty(UserSession.LoggedInUsername))
-            {
-                MessageBox.Show("User is not logged in.");
-                Dashbord dashbord = new Dashbord();
-                dashbord.Show();
-                this.Close();
-                return;
-            }
+            //if (string.IsNullOrEmpty(UserSession.LoggedInUsername))
+            //{
+            //    MessageBox.Show("User is not logged in.");
+            //    Dashbord dashbord = new Dashbord();
+            //    dashbord.Show();
+            //    this.Close();
+            //    return;
+            //}
 
-            // Retrieve the login ID based on the logged-in user
-            loginId = DatabaseOperations.GetLoginId(UserSession.LoggedInUsername);
-            LoadMembers();
-            LoadCheckBoxes();
+            //// Retrieve the login ID based on the logged-in user
+            //loginId = DatabaseOperations.GetLoginId(UserSession.LoggedInUsername);
+            //LoadMembers();
+            //LoadCheckBoxes();
         }
 
         private void btn_AddExpense_Click(object sender, EventArgs e)
