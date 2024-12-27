@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Add_members));
             this.label1 = new System.Windows.Forms.Label();
             this.member_name = new System.Windows.Forms.Label();
             this.Email = new System.Windows.Forms.Label();
@@ -43,10 +44,12 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(458, 26);
+            this.label1.Location = new System.Drawing.Point(190, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(212, 36);
             this.label1.TabIndex = 0;
@@ -54,9 +57,11 @@
             // 
             // member_name
             // 
+            this.member_name.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.member_name.AutoSize = true;
+            this.member_name.BackColor = System.Drawing.Color.Transparent;
             this.member_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.member_name.Location = new System.Drawing.Point(329, 236);
+            this.member_name.Location = new System.Drawing.Point(48, 121);
             this.member_name.Name = "member_name";
             this.member_name.Size = new System.Drawing.Size(96, 29);
             this.member_name.TabIndex = 1;
@@ -64,9 +69,11 @@
             // 
             // Email
             // 
+            this.Email.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Email.AutoSize = true;
+            this.Email.BackColor = System.Drawing.Color.Transparent;
             this.Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Email.Location = new System.Drawing.Point(340, 298);
+            this.Email.Location = new System.Drawing.Point(58, 184);
             this.Email.Name = "Email";
             this.Email.Size = new System.Drawing.Size(86, 29);
             this.Email.TabIndex = 2;
@@ -74,9 +81,11 @@
             // 
             // phone
             // 
+            this.phone.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.phone.AutoSize = true;
+            this.phone.BackColor = System.Drawing.Color.Transparent;
             this.phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phone.Location = new System.Drawing.Point(340, 364);
+            this.phone.Location = new System.Drawing.Point(48, 250);
             this.phone.Name = "phone";
             this.phone.Size = new System.Drawing.Size(95, 29);
             this.phone.TabIndex = 3;
@@ -85,11 +94,12 @@
             // 
             // btn_AddMembers
             // 
+            this.btn_AddMembers.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_AddMembers.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick;
             this.btn_AddMembers.FlatAppearance.BorderSize = 100;
             this.btn_AddMembers.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_AddMembers.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_AddMembers.Location = new System.Drawing.Point(465, 464);
+            this.btn_AddMembers.Location = new System.Drawing.Point(196, 323);
             this.btn_AddMembers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_AddMembers.Name = "btn_AddMembers";
             this.btn_AddMembers.Size = new System.Drawing.Size(206, 53);
@@ -100,8 +110,9 @@
             // 
             // tbName
             // 
+            this.tbName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbName.Location = new System.Drawing.Point(453, 232);
+            this.tbName.Location = new System.Drawing.Point(162, 118);
             this.tbName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(310, 35);
@@ -110,8 +121,9 @@
             // 
             // tbEmail
             // 
+            this.tbEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbEmail.Location = new System.Drawing.Point(453, 295);
+            this.tbEmail.Location = new System.Drawing.Point(162, 181);
             this.tbEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(310, 35);
@@ -119,8 +131,9 @@
             // 
             // tbPhone
             // 
+            this.tbPhone.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPhone.Location = new System.Drawing.Point(453, 361);
+            this.tbPhone.Location = new System.Drawing.Point(162, 247);
             this.tbPhone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(310, 35);
@@ -128,52 +141,54 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.SystemColors.Desktop;
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btn_AddMembers);
+            this.panel1.Controls.Add(this.tbName);
+            this.panel1.Controls.Add(this.tbEmail);
+            this.panel1.Controls.Add(this.tbPhone);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Controls.Add(this.member_name);
+            this.panel1.Controls.Add(this.Email);
+            this.panel1.Controls.Add(this.phone);
+            this.panel1.Location = new System.Drawing.Point(309, 109);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1113, 91);
-            this.panel1.TabIndex = 11;
+            this.panel1.Size = new System.Drawing.Size(550, 444);
+            this.panel1.TabIndex = 8;
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(22, 26);
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(53, 30);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 30);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Back";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Size = new System.Drawing.Size(46, 43);
+            this.button1.TabIndex = 8;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // Add_members
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MistyRose;
-            this.BackgroundImage = global::Travel_expense_Splitter.Properties.Resources.Green_Full_Photo_Forest_Desktop_Wallpaper;
+            this.BackgroundImage = global::Travel_expense_Splitter.Properties.Resources.Green_Full_Photo_Forest_Desktop_Wallpaper__1_1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1167, 700);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.tbPhone);
-            this.Controls.Add(this.tbEmail);
-            this.Controls.Add(this.tbName);
-            this.Controls.Add(this.btn_AddMembers);
-            this.Controls.Add(this.phone);
-            this.Controls.Add(this.Email);
-            this.Controls.Add(this.member_name);
             this.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Add_members";
             this.Text = "Add_members";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Add_members_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
