@@ -10,13 +10,6 @@ namespace Travel_expense_Splitter
             InitializeComponent();
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Form1 form1 = new Form1();
-            form1.Show();
-            this.Hide();
-        }
-
         private void Form5_Load(object sender, EventArgs e)
         {
 
@@ -80,6 +73,13 @@ namespace Travel_expense_Splitter
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.Show();
+            this.Hide();
         }
     }
 }

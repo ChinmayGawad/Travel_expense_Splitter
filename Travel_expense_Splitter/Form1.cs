@@ -70,7 +70,6 @@ namespace Travel_expense_Splitter
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            panel2.BackColor = System.Drawing.Color.FromArgb(120, 0, 0, 0);
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -95,17 +94,18 @@ namespace Travel_expense_Splitter
 
         }
 
-        private void SignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
             Form5 signup = new Form5();
             signup.Show();
+            this.Hide();
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             Form6 pass = new Form6();
             pass.Show();
-
+            this.Hide();
         }
     }
 }

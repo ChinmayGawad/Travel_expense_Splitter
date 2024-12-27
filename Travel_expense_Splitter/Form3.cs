@@ -20,7 +20,6 @@ namespace Travel_expense_Splitter
 
         private void Form3_Load(object sender, EventArgs e)
         {
-            panel1.BackColor = Color.FromArgb(100, 0, 0, 0);
             //if (string.IsNullOrEmpty(UserSession.LoggedInUsername))
             //{
             //    MessageBox.Show("User is not logged in.");
