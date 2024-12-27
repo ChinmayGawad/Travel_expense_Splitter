@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
@@ -35,6 +36,19 @@ namespace Travel_expense_Splitter
             //LoadCheckBoxes();
         }
 
+        private int GetLoginId(string username)
+        {
+            using (DatabaseHelper dbHelper = new DatabaseHelper())
+            {
+                string query = "SELECT Login_ID FROM login_table WHERE Username = @username";
+                using (SqlCommand cmd = new SqlCommand(query, dbHelper.Connection))
+                {
+                    cmd.Parameters.AddWithValue("@username", username);
+                    return (int)cmd.ExecuteScalar();
+                }
+            }
+        }
+
         private void btn_AddExpense_Click(object sender, EventArgs e)
         {
             string expense_name = tbName.Text;
@@ -65,7 +79,7 @@ namespace Travel_expense_Splitter
 
             try
             {
-                int rowsAffected = DatabaseOperations.AddExpense(expense_name, amount, memberid, dateTime, checkedMembers, loginId);
+                int rowsAffected = AddExpense(expense_name, amount, memberid, dateTime, checkedMembers, loginId);
                 if (rowsAffected > 0)
                 {
                     MessageBox.Show("Expense Added Successfully! You can check the balance by clicking on view balance!");
@@ -80,25 +94,48 @@ namespace Travel_expense_Splitter
             }
         }
 
+        private int AddExpense(string expense_name, string amount, int memberid, DateTime dateTime, string checkedMembers, int loginId)
+        {
+            using (DatabaseHelper dbHelper = new DatabaseHelper())
+            {
+                string query = "INSERT INTO Expense (Description, Amount, Payer_ID, Date, CheckedMembers, Login_ID) VALUES (@expense_name, @amount, @memberid, @dateTime, @checkedMembers, @loginId)";
+                using (SqlCommand cmd = new SqlCommand(query, dbHelper.Connection))
+                {
+                    cmd.Parameters.AddWithValue("@expense_name", expense_name);
+                    cmd.Parameters.AddWithValue("@amount", amount);
+                    cmd.Parameters.AddWithValue("@memberid", memberid);
+                    cmd.Parameters.AddWithValue("@dateTime", dateTime);
+                    cmd.Parameters.AddWithValue("@checkedMembers", checkedMembers);
+                    cmd.Parameters.AddWithValue("@loginId", loginId);
+
+                    return cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
         private void LoadCheckBoxes()
         {
             try
             {
-                using (SqlDataReader reader = DatabaseOperations.GetMemberCheckBoxes())
+                using (DatabaseHelper dbHelper = new DatabaseHelper())
                 {
-                    while (reader.Read())
+                    string query = "SELECT Member_ID, Member_Name FROM Members";
+                    using (SqlDataReader reader = dbHelper.ExecuteReader(query))
                     {
-                        CheckBox checkBox = new CheckBox
+                        while (reader.Read())
                         {
-                            Text = reader["Member_Name"].ToString(),
-                            Tag = reader["Member_ID"],
-                            AutoSize = true,
-                            Margin = new Padding(10),
-                            Font = new Font("Times New Roman", 14)
-                        };
+                            CheckBox checkBox = new CheckBox
+                            {
+                                Text = reader["Member_Name"].ToString(),
+                                Tag = reader["Member_ID"],
+                                AutoSize = true,
+                                Margin = new Padding(10),
+                                Font = new Font("Times New Roman", 14)
+                            };
 
-                        // Add the checkbox to the FlowLayoutPanel
-                        flowLayout.Controls.Add(checkBox);
+                            // Add the checkbox to the FlowLayoutPanel
+                            flowLayout.Controls.Add(checkBox);
+                        }
                     }
                 }
             }
@@ -112,10 +149,25 @@ namespace Travel_expense_Splitter
         {
             try
             {
-                _expenseList = DatabaseOperations.GetMembers();
-                foreach (var member in _expenseList)
+                using (DatabaseHelper dbHelper = new DatabaseHelper())
                 {
-                    PayerBox.Items.Add(member.member_name);
+                    string query = "SELECT * FROM Members";
+                    using (SqlDataReader reader = dbHelper.ExecuteReader(query))
+                    {
+                        DataTable ExpenseTable = new DataTable();
+                        ExpenseTable.Load(reader);
+
+                        foreach (DataRow row in ExpenseTable.Rows)
+                        {
+                            ExpenseAdapter _obj = new ExpenseAdapter
+                            {
+                                member_name = row["Member_Name"].ToString(),
+                                Payer_id = Convert.ToInt32(row["Member_ID"])
+                            };
+                            _expenseList.Add(_obj);
+                            PayerBox.Items.Add(row["Member_Name"].ToString());
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -180,4 +232,7 @@ namespace Travel_expense_Splitter
         }
     }
 }
+
+
+
 

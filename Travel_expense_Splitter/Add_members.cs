@@ -65,7 +65,7 @@ namespace Travel_expense_Splitter
         {
             Dashbord dashboard = new Dashbord();
             dashboard.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void Add_members_Load(object sender, EventArgs e)
