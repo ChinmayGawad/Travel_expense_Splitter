@@ -6,6 +6,7 @@ namespace Travel_expense_Splitter
 {
     public partial class Dashbord : Form
     {
+        Boolean arrow=false;
         public Dashbord()
         {
             InitializeComponent();
@@ -13,18 +14,13 @@ namespace Travel_expense_Splitter
 
         private void Dashbord_Load(object sender, EventArgs e)
         {
-            panel3.BackColor = Color.FromArgb(100,0,0,0);
-            panel4.BackColor = Color.FromArgb(100, 0, 0, 0);
-            button1.BackColor = Color.FromArgb(100, 0, 0, 0);
-            button2.BackColor = Color.FromArgb(100, 0, 0, 0);
-            button3.BackColor = Color.FromArgb(100, 0, 0, 0);
+            //DatabaseHelper databaseHelper = new DatabaseHelper();
+            //string query = "select sum(Amount) from Expense";
+            //int totalMembers = GetTotalMembers();
+            //Total_Members.Text = totalMembers.ToString();
 
-
-            int totalMembers = DatabaseOperations.GetTotalMembers();
-            Total_Members.Text = totalMembers.ToString();
-
-            decimal total_Expense = DatabaseOperations.GetTotalExpenses();
-            Total_Expenses.Text = total_Expense.ToString("C");
+            //decimal total_Expense = DatabaseOperations.GetTotalExpenses();
+            //Total_Expenses.Text = total_Expense.ToString("C");
         }
 
         private void Total_Members_Click(object sender, EventArgs e)
@@ -62,7 +58,28 @@ namespace Travel_expense_Splitter
         {
 
         }
-      
-       
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            if (arrow)
+            {
+                arrow = false;
+                button4.BackgroundImage = Properties.Resources.arrowDown;
+                panel5.Hide();
+            }
+            else
+            {
+                arrow = true;
+                button4.BackgroundImage = Properties.Resources.arrowUp;
+                panel5.Show();
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.Show();
+            this.Hide();
+        }
     }
 }
