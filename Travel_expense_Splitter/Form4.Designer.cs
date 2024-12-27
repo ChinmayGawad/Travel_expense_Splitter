@@ -100,7 +100,7 @@
             this.button1.Size = new System.Drawing.Size(58, 54);
             this.button1.TabIndex = 26;
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button2_Click);
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel7
             // 
@@ -108,7 +108,7 @@
             this.panel7.BackColor = System.Drawing.Color.Transparent;
             this.panel7.Controls.Add(this.panel2);
             this.panel7.Controls.Add(this.panel5);
-            this.panel7.Location = new System.Drawing.Point(1091, 13);
+            this.panel7.Location = new System.Drawing.Point(1092, 13);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(219, 87);
             this.panel7.TabIndex = 19;
