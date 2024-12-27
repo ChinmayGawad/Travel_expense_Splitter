@@ -7,6 +7,7 @@ namespace Travel_expense_Splitter
 {
     public partial class Add_members : Form
     {
+        Boolean arrow = false;
         public Add_members()
         {
             InitializeComponent();
@@ -75,6 +76,29 @@ namespace Travel_expense_Splitter
         {
             Dashbord dashbord = new Dashbord();
             dashbord.Show();
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (arrow)
+            {
+                arrow = false;
+                button4.BackgroundImage = Properties.Resources.arrowDown;
+                panel5.Hide();
+            }
+            else
+            {
+                arrow = true;
+                button4.BackgroundImage = Properties.Resources.arrowUp;
+                panel5.Show();
+            }
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.Show();
             this.Hide();
         }
     }

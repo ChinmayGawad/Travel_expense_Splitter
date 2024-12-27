@@ -296,7 +296,7 @@
             this.panel7.BackColor = System.Drawing.Color.Transparent;
             this.panel7.Controls.Add(this.panel1);
             this.panel7.Controls.Add(this.panel5);
-            this.panel7.Location = new System.Drawing.Point(1017, -11);
+            this.panel7.Location = new System.Drawing.Point(1088, -11);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(219, 87);
             this.panel7.TabIndex = 18;
