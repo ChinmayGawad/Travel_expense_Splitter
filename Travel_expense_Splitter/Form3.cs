@@ -98,7 +98,7 @@ namespace Travel_expense_Splitter
                             Font = new Font("Times New Roman", 14)
                         };
 
-                        
+                        // Add the checkbox to the FlowLayoutPanel
                         flowLayout.Controls.Add(checkBox);
                     }
                 }
