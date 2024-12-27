@@ -24,9 +24,8 @@ namespace Travel_expense_Splitter
         {
 
         }
-           
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
             string email = textBox1.Text.Trim();
             string newPassword = textBox3.Text.Trim();
@@ -73,7 +72,6 @@ namespace Travel_expense_Splitter
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
-    
         }
     }
 }
