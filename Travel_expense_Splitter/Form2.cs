@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Travel_expense_Splitter.Adapter;
 
 namespace Travel_expense_Splitter
 {
@@ -27,10 +19,9 @@ namespace Travel_expense_Splitter
             button2.BackColor = Color.FromArgb(100, 0, 0, 0);
             button3.BackColor = Color.FromArgb(100, 0, 0, 0);
 
-            //DatabaseHelper databaseHelper = new DatabaseHelper();
-            //string query = "select sum(Amount) from Expense";
-            //int totalMembers = GetTotalMembers();
-            //Total_Members.Text = totalMembers.ToString();
+
+            int totalMembers = DatabaseOperations.GetTotalMembers();
+            Total_Members.Text = totalMembers.ToString();
 
             decimal total_Expense = DatabaseOperations.GetTotalExpenses();
             Total_Expenses.Text = total_Expense.ToString("C");

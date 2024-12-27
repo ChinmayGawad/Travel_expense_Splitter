@@ -189,6 +189,22 @@ namespace Travel_expense_Splitter
                 }
             }
         }
+
+        public static int AddMember(string member_name, string mem_email, string phoneNo)
+        {
+            using (DatabaseHelper dbHelper = new DatabaseHelper())
+            {
+                string query = "INSERT INTO Members (Member_Name, Email_ID, Phone) VALUES (@member_name, @mem_email, @phoneNo)";
+                using (SqlCommand cmd = new SqlCommand(query, dbHelper.Connection))
+                {
+                    cmd.Parameters.AddWithValue("@member_name", member_name);
+                    cmd.Parameters.AddWithValue("@mem_email", mem_email);
+                    cmd.Parameters.AddWithValue("@phoneNo", phoneNo);
+
+                    return cmd.ExecuteNonQuery();
+                }
+            }
+        }
     }
 
 }
