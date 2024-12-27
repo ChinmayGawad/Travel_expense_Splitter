@@ -84,6 +84,11 @@ namespace Travel_expense_Splitter
             dashboard.Show();
             this.Hide();
         }
+
+        private void Add_members_Load(object sender, EventArgs e)
+        {
+            panel1.BackColor = Color.FromArgb(100, 0, 0, 0);
+        }
     }
 }
 
