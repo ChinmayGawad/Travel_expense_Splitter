@@ -23,6 +23,10 @@ namespace Travel_expense_Splitter
         {
             panel3.BackColor = Color.FromArgb(100,0,0,0);
             panel4.BackColor = Color.FromArgb(100, 0, 0, 0);
+            button1.BackColor = Color.FromArgb(100, 0, 0, 0);
+            button2.BackColor = Color.FromArgb(100, 0, 0, 0);
+            button3.BackColor = Color.FromArgb(100, 0, 0, 0);
+
             //DatabaseHelper databaseHelper = new DatabaseHelper();
             //string query = "select sum(Amount) from Expense";
             //int totalMembers = GetTotalMembers();
