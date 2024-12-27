@@ -21,13 +21,15 @@ namespace Travel_expense_Splitter
 
         private void Dashbord_Load(object sender, EventArgs e)
         {
-            DatabaseHelper databaseHelper = new DatabaseHelper();
-            string query = "select sum(Amount) from Expense";
-            int totalMembers = GetTotalMembers();
-            Total_Members.Text = totalMembers.ToString();
+            panel3.BackColor = Color.FromArgb(100,0,0,0);
+            panel4.BackColor = Color.FromArgb(100, 0, 0, 0);
+            //DatabaseHelper databaseHelper = new DatabaseHelper();
+            //string query = "select sum(Amount) from Expense";
+            //int totalMembers = GetTotalMembers();
+            //Total_Members.Text = totalMembers.ToString();
 
-            decimal total_Expense = GetTotalExpenses();
-            Total_Expenses.Text = total_Expense.ToString("C");
+            //decimal total_Expense = GetTotalExpenses();
+            //Total_Expenses.Text = total_Expense.ToString("C");
         }
 
         private void Total_Members_Click(object sender, EventArgs e)
