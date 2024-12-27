@@ -34,18 +34,13 @@ namespace Travel_expense_Splitter
                     username = TBUser.Text;
                     password = TBPass.Text;
 
-                    string query = "SELECT COUNT(*) FROM login_table WHERE (username = @username or Email = @username) AND pass = @password ";
 
-                    using (SqlCommand command = new SqlCommand(query, dbHelper.Connection))
-                    {
-                        command.Parameters.AddWithValue("@username", username);
-                        command.Parameters.AddWithValue("@password", password);
 
-                        int userCount = Convert.ToInt32(command.ExecuteScalar());
+                    int userCount = DatabaseOperations.GetUserCount(username, password);
 
-                        if (userCount > 0)
+                    if (userCount > 0)
                         {
-                            MessageBox.Show("Login successful!");
+                           //  MessageBox.Show("Login successful!");
                             UserSession.LoggedInUsername = username;
                             Dashbord dash = new Dashbord();
                             dash.Show();
@@ -58,7 +53,6 @@ namespace Travel_expense_Splitter
                             TBPass.Text = "";
                         }
                     }
-                }
             }
             catch (SqlException ex)
             {
@@ -105,7 +99,7 @@ namespace Travel_expense_Splitter
         {
             Form5 signup = new Form5();
             signup.Show();
-            this.Hide();
+            this.Close();
         }
     }
 }

@@ -32,8 +32,8 @@ namespace Travel_expense_Splitter
             //int totalMembers = GetTotalMembers();
             //Total_Members.Text = totalMembers.ToString();
 
-            //decimal total_Expense = GetTotalExpenses();
-            //Total_Expenses.Text = total_Expense.ToString("C");
+            decimal total_Expense = GetTotalExpenses();
+            Total_Expenses.Text = total_Expense.ToString("C");
         }
 
         private void Total_Members_Click(object sender, EventArgs e)
@@ -71,35 +71,7 @@ namespace Travel_expense_Splitter
         {
 
         }
-        private int GetTotalMembers()
-        {
-            using (DatabaseHelper dbHelper = new DatabaseHelper())
-            {
-                string query = "SELECT COUNT(*) FROM Members";
-                using (SqlCommand cmd = new SqlCommand(query, dbHelper.Connection))
-                {
-                    return (int)cmd.ExecuteScalar();
-                }
-            }
-        }
-        private decimal GetTotalExpenses()
-        {
-            using (DatabaseHelper dbHelper = new DatabaseHelper())
-            {
-                string query = "SELECT SUM(Amount) FROM Expense";
-                using (SqlCommand cmd = new SqlCommand(query, dbHelper.Connection))
-                {
-                    object result = cmd.ExecuteScalar();
-                    if (result == DBNull.Value)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return Convert.ToDecimal(result);
-                    }
-                }
-            }
-        }
+      
+       
     }
 }

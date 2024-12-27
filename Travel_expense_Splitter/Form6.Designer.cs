@@ -84,32 +84,10 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.Blue;
-            this.button1.Location = new System.Drawing.Point(26, 425);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(481, 50);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Update Password";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(26, 194);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(481, 32);
-            this.textBox3.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(21, 152);
-            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(176, 21);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Enter New Password :";
+            this.textBox1.Location = new System.Drawing.Point(26, 62);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(481, 38);
+            this.textBox1.TabIndex = 1;
             // 
             // textBox2
             // 
@@ -132,10 +110,13 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(26, 62);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(481, 32);
-            this.textBox1.TabIndex = 1;
+            this.button1.BackColor = System.Drawing.Color.Blue;
+            this.button1.Location = new System.Drawing.Point(26, 425);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(481, 50);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Update Password";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // Form6
             // 
