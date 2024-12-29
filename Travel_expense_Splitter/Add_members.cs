@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data.SqlClient;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace Travel_expense_Splitter
@@ -8,10 +7,39 @@ namespace Travel_expense_Splitter
     public partial class Add_members : Form
     {
         Boolean arrow = false;
+        public string connectionString = "Server=CHINMAY-N3P5PKK\\SQLEXPRESS;Database=travel_expenses;Integrated Security=True;";
+
         public Add_members()
         {
             InitializeComponent();
         }
+
+        private void Add_members_Load(object sender, EventArgs e)
+        {
+            LoadTrips();
+        }
+
+        private void LoadTrips()
+        {
+            try
+            {
+                var trips = DatabaseOperations.GetTrips();
+                foreach (var trip in trips)
+                {
+                    ComboBoxItem item = new ComboBoxItem
+                    {
+                        Text = trip.TripName,
+                        Value = trip.TripId
+                    };
+                    comboBox1.Items.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error loading trips: " + ex.Message);
+            }
+        }
+
 
         private void btn_AddMembers_Click(object sender, EventArgs e)
         {
@@ -25,9 +53,18 @@ namespace Travel_expense_Splitter
                 return; // Exit the method if conversion fails
             }
 
+            if (comboBox1.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a trip.");
+                return; // Exit the method if no trip is selected
+            }
+
+            ComboBoxItem selectedTrip = (ComboBoxItem)comboBox1.SelectedItem;
+            int tripId = (int)selectedTrip.Value;
+
             try
             {
-                int rowsAffected = DatabaseOperations.AddMember(member_name,mem_email,mem_phone);
+                int rowsAffected = DatabaseOperations.AddMember(member_name, mem_email, mem_phone, tripId);
                 if (rowsAffected > 0)
                 {
                     MessageBox.Show("Member added successfully!");
@@ -40,7 +77,6 @@ namespace Travel_expense_Splitter
                     MessageBox.Show("Failed to add member.");
                 }
             }
-
             catch (SqlException ex)
             {
                 Console.WriteLine($"Database error: {ex.Message}");
@@ -66,10 +102,6 @@ namespace Travel_expense_Splitter
             Dashbord dashboard = new Dashbord();
             dashboard.Show();
             this.Close();
-        }
-
-        private void Add_members_Load(object sender, EventArgs e)
-        {
         }
 
         private void button1_Click_2(object sender, EventArgs e)
@@ -102,5 +134,15 @@ namespace Travel_expense_Splitter
             this.Hide();
         }
     }
-}
 
+    public class ComboBoxItem
+    {
+        public string Text { get; set; }
+        public object Value { get; set; }
+
+        public override string ToString()
+        {
+            return Text;
+        }
+    }
+}

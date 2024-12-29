@@ -69,16 +69,24 @@ namespace Travel_expense_Splitter
                     l1.Location = new Point(10, 5);
                     l1.AutoSize = true;
 
+
                     TextBox l2 = new TextBox();
                     l2.Text = data.Amount.ToString("C");
                     l2.Enabled = false;
                     l2.Location = new Point(220, 5);
 
+
+                    Label l6 = new Label();
+                    l6.Text = "Expense Name: " + data.ExpenseName;
+                    l6.Font = new Font("Times New Roman", 12, FontStyle.Bold);
+                    l6.Location = new Point(10, 35);
+                    l6.AutoSize = true;
+
                     // Display checked members
                     Label l3 = new Label();
                     l3.Text = " Members: " + DatabaseOperations.GetMemberNames(data.CheckedMembers);
                     l3.Font = new Font("Times New Roman", 12, FontStyle.Bold);
-                    l3.Location = new Point(10, 35);
+                    l3.Location = new Point(10, 65);
                     l3.AutoSize = true;
 
                     // Calculate share amount
@@ -89,21 +97,26 @@ namespace Travel_expense_Splitter
                     Label l4 = new Label();
                     l4.Text = "Amount to be paid by each member: " + shareAmount.ToString("C");
                     l4.Font = new Font("Times New Roman", 12, FontStyle.Bold);
-                    l4.Location = new Point(10, 65);
+                    l4.Location = new Point(10, 95);
                     l4.AutoSize = true;
 
                     // Display the username who made the entry
                     Label l5 = new Label();
                     l5.Text = "Entry Done By: " + data.Username;
                     l5.Font = new Font("Times New Roman", 12, FontStyle.Bold);
-                    l5.Location = new Point(10, 95);
+                    l5.Location = new Point(10, 125);
                     l5.AutoSize = true;
+
+
+                    
 
                     tp1.Controls.Add(l1);
                     tp1.Controls.Add(l2);
                     tp1.Controls.Add(l3);
                     tp1.Controls.Add(l4);
                     tp1.Controls.Add(l5);
+                    tp1.Controls.Add(l6);
+
                 }
             }
             catch (Exception ex)

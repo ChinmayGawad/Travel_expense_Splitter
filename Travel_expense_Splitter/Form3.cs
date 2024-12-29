@@ -29,11 +29,14 @@ namespace Travel_expense_Splitter
                 return;
             }
 
+            // Initialize the connection string
+            string connectionString = "Server=CHINMAY-N3P5PKK\\SQLEXPRESS;Database=travel_expenses;Integrated Security=True;";
+            DatabaseHelper.ConnectionString = connectionString;
+
             // Retrieve the login ID based on the logged-in user
             loginId = DatabaseOperations.GetLoginId(UserSession.LoggedInUsername);
             LoadTrips();
-            LoadMembers();
-            LoadCheckBoxes();
+            cbTrips.SelectedIndexChanged += cbTrips_SelectedIndexChanged;
         }
 
         private void LoadTrips()
@@ -108,17 +111,18 @@ namespace Travel_expense_Splitter
             }
         }
 
-        private void LoadCheckBoxes()
+        private void LoadCheckBoxes(int tripId)
         {
             try
             {
-                var members = DatabaseOperations.GetMemberCheckBoxes();
+                var members = DatabaseOperations.GetMembersByTrip(tripId);
+                flowLayout.Controls.Clear();
                 foreach (var member in members)
                 {
                     CheckBox checkBox = new CheckBox
                     {
-                        Text = member.MemberName,
-                        Tag = member.MemberId,
+                        Text = member.member_name,
+                        Tag = member.Payer_id,
                         AutoSize = true,
                         Margin = new Padding(10),
                         Font = new Font("Times New Roman", 14)
@@ -134,11 +138,12 @@ namespace Travel_expense_Splitter
             }
         }
 
-        private void LoadMembers()
+        private void LoadMembers(int tripId)
         {
             try
             {
-                _expenseList = DatabaseOperations.GetMembers();
+                _expenseList = DatabaseOperations.GetMembersByTrip(tripId);
+                PayerBox.Items.Clear();
                 foreach (var member in _expenseList)
                 {
                     PayerBox.Items.Add(member.member_name);
@@ -147,6 +152,16 @@ namespace Travel_expense_Splitter
             catch (Exception ex)
             {
                 Console.WriteLine("Error fetching members: " + ex.Message);
+            }
+        }
+
+        private void cbTrips_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbTrips.SelectedItem != null)
+            {
+                int tripId = (cbTrips.SelectedItem as dynamic).TripId;
+                LoadMembers(tripId);
+                LoadCheckBoxes(tripId);
             }
         }
 
@@ -189,24 +204,27 @@ namespace Travel_expense_Splitter
             this.Hide();
         }
 
-     /*   private void button4_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            if (arrow)
-            {
-                arrow = false;
-                button4.BackgroundImage = Properties.Resources.arrowDown;
-                panel5.Hide();
-            }
-            else
-            {
-                arrow = true;
-                button4.BackgroundImage = Properties.Resources.arrowUp;
-                panel5.Show();
-            }
-        }*/
+            Dashbord dashbord = new Dashbord();
+            dashbord.Show();
+            this.Close();
+        }
+
+        /*   private void button4_Click(object sender, EventArgs e)
+           {
+               if (arrow)
+               {
+                   arrow = false;
+                   button4.BackgroundImage = Properties.Resources.arrowDown;
+                   panel5.Hide();
+               }
+               else
+               {
+                   arrow = true;
+                   button4.BackgroundImage = Properties.Resources.arrowUp;
+                   panel5.Show();
+               }
+           }*/
     }
 }
-
-
-
-

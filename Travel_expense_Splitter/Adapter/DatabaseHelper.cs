@@ -56,4 +56,3 @@ namespace Travel_expense_Splitter.Adapter
         }
     }
 }
-

@@ -46,6 +46,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -62,7 +64,7 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(190, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(212, 36);
+            this.label1.Size = new System.Drawing.Size(267, 45);
             this.label1.TabIndex = 0;
             this.label1.Text = "Add Members";
             // 
@@ -74,7 +76,7 @@
             this.member_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.member_name.Location = new System.Drawing.Point(48, 121);
             this.member_name.Name = "member_name";
-            this.member_name.Size = new System.Drawing.Size(96, 29);
+            this.member_name.Size = new System.Drawing.Size(116, 36);
             this.member_name.TabIndex = 1;
             this.member_name.Text = " Name :";
             // 
@@ -86,7 +88,7 @@
             this.Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Email.Location = new System.Drawing.Point(58, 184);
             this.Email.Name = "Email";
-            this.Email.Size = new System.Drawing.Size(86, 29);
+            this.Email.Size = new System.Drawing.Size(104, 36);
             this.Email.TabIndex = 2;
             this.Email.Text = "Email :";
             // 
@@ -98,7 +100,7 @@
             this.phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.phone.Location = new System.Drawing.Point(48, 250);
             this.phone.Name = "phone";
-            this.phone.Size = new System.Drawing.Size(95, 29);
+            this.phone.Size = new System.Drawing.Size(118, 36);
             this.phone.TabIndex = 3;
             this.phone.Text = "Phone :";
             this.phone.Click += new System.EventHandler(this.phone_Click);
@@ -110,7 +112,7 @@
             this.btn_AddMembers.FlatAppearance.BorderSize = 100;
             this.btn_AddMembers.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_AddMembers.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_AddMembers.Location = new System.Drawing.Point(196, 323);
+            this.btn_AddMembers.Location = new System.Drawing.Point(198, 364);
             this.btn_AddMembers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_AddMembers.Name = "btn_AddMembers";
             this.btn_AddMembers.Size = new System.Drawing.Size(206, 53);
@@ -126,7 +128,7 @@
             this.tbName.Location = new System.Drawing.Point(162, 118);
             this.tbName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(310, 35);
+            this.tbName.Size = new System.Drawing.Size(310, 41);
             this.tbName.TabIndex = 5;
             this.tbName.TextChanged += new System.EventHandler(this.tbName_TextChanged);
             // 
@@ -137,7 +139,7 @@
             this.tbEmail.Location = new System.Drawing.Point(162, 181);
             this.tbEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(310, 35);
+            this.tbEmail.Size = new System.Drawing.Size(310, 41);
             this.tbEmail.TabIndex = 6;
             // 
             // tbPhone
@@ -147,13 +149,15 @@
             this.tbPhone.Location = new System.Drawing.Point(162, 247);
             this.tbPhone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbPhone.Name = "tbPhone";
-            this.tbPhone.Size = new System.Drawing.Size(310, 35);
+            this.tbPhone.Size = new System.Drawing.Size(310, 41);
             this.tbPhone.TabIndex = 7;
             // 
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btn_AddMembers);
             this.panel1.Controls.Add(this.tbName);
@@ -256,7 +260,7 @@
             this.label3.ForeColor = System.Drawing.Color.Navy;
             this.label3.Location = new System.Drawing.Point(63, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 22);
+            this.label3.Size = new System.Drawing.Size(133, 26);
             this.label3.TabIndex = 0;
             this.label3.Text = "VishwaSave";
             // 
@@ -290,9 +294,30 @@
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click_1);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(162, 307);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(310, 42);
+            this.comboBox1.TabIndex = 27;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.CausesValidation = false;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(11, 307);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(151, 34);
+            this.label2.TabIndex = 28;
+            this.label2.Text = "Select Trip:";
+            // 
             // Add_members
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MistyRose;
             this.BackgroundImage = global::Travel_expense_Splitter.Properties.Resources.Green_Full_Photo_Forest_Desktop_Wallpaper__1_1;
@@ -338,5 +363,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label2;
     }
 }
