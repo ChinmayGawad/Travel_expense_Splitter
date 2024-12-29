@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
 using Travel_expense_Splitter.Adapter;
@@ -21,32 +19,47 @@ namespace Travel_expense_Splitter
 
         private void Form3_Load(object sender, EventArgs e)
         {
-            //if (string.IsNullOrEmpty(UserSession.LoggedInUsername))
-            //{
-            //    MessageBox.Show("User is not logged in.");
-            //    Dashbord dashbord = new Dashbord();
-            //    dashbord.Show();
-            //    this.Close();
-            //    return;
-            //}
+            panel1.BackColor = Color.FromArgb(100, 0, 0, 0);
+            if (string.IsNullOrEmpty(UserSession.LoggedInUsername))
+            {
+                MessageBox.Show("User is not logged in.");
+                Dashbord dashbord = new Dashbord();
+                dashbord.Show();
+                this.Close();
+                return;
+            }
 
-            //// Retrieve the login ID based on the logged-in user
-            //loginId = DatabaseOperations.GetLoginId(UserSession.LoggedInUsername);
-            //LoadMembers();
-            //LoadCheckBoxes();
+            // Retrieve the login ID based on the logged-in user
+            loginId = DatabaseOperations.GetLoginId(UserSession.LoggedInUsername);
+            LoadTrips();
+            LoadMembers();
+            LoadCheckBoxes();
         }
 
-        private int GetLoginId(string username)
+        private void LoadTrips()
         {
-            using (DatabaseHelper dbHelper = new DatabaseHelper())
+            try
             {
-                string query = "SELECT Login_ID FROM login_table WHERE Username = @username";
-                using (SqlCommand cmd = new SqlCommand(query, dbHelper.Connection))
+                var trips = DatabaseOperations.GetTrips();
+                cbTrips.Items.Clear();
+                foreach (var trip in trips)
                 {
-                    cmd.Parameters.AddWithValue("@username", username);
-                    return (int)cmd.ExecuteScalar();
+                    cbTrips.Items.Add(new { trip.TripId, trip.TripName });
                 }
+                cbTrips.DisplayMember = "TripName";
+                cbTrips.ValueMember = "TripId";
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading trips: " + ex.Message);
+            }
+        }
+
+        private void btnAddTrip_Click(object sender, EventArgs e)
+        {
+            addTrip formAddTrip = new addTrip();
+            formAddTrip.ShowDialog();
+            LoadTrips(); // Reload trips after adding a new trip
         }
 
         private void btn_AddExpense_Click(object sender, EventArgs e)
@@ -56,6 +69,7 @@ namespace Travel_expense_Splitter
             string memberSelected = PayerBox.Text;
             int memberid = 0;
             DateTime dateTime = dateTimePicker1.Value;
+            int tripId = (cbTrips.SelectedItem as dynamic).TripId;
 
             foreach (ExpenseAdapter _obj in _expenseList)
             {
@@ -79,7 +93,7 @@ namespace Travel_expense_Splitter
 
             try
             {
-                int rowsAffected = AddExpense(expense_name, amount, memberid, dateTime, checkedMembers, loginId);
+                int rowsAffected = DatabaseOperations.AddExpense(expense_name, amount, memberid, dateTime, checkedMembers, loginId, tripId);
                 if (rowsAffected > 0)
                 {
                     MessageBox.Show("Expense Added Successfully! You can check the balance by clicking on view balance!");
@@ -94,49 +108,24 @@ namespace Travel_expense_Splitter
             }
         }
 
-        private int AddExpense(string expense_name, string amount, int memberid, DateTime dateTime, string checkedMembers, int loginId)
-        {
-            using (DatabaseHelper dbHelper = new DatabaseHelper())
-            {
-                string query = "INSERT INTO Expense (Description, Amount, Payer_ID, Date, CheckedMembers, Login_ID) VALUES (@expense_name, @amount, @memberid, @dateTime, @checkedMembers, @loginId)";
-                using (SqlCommand cmd = new SqlCommand(query, dbHelper.Connection))
-                {
-                    cmd.Parameters.AddWithValue("@expense_name", expense_name);
-                    cmd.Parameters.AddWithValue("@amount", amount);
-                    cmd.Parameters.AddWithValue("@memberid", memberid);
-                    cmd.Parameters.AddWithValue("@dateTime", dateTime);
-                    cmd.Parameters.AddWithValue("@checkedMembers", checkedMembers);
-                    cmd.Parameters.AddWithValue("@loginId", loginId);
-
-                    return cmd.ExecuteNonQuery();
-                }
-            }
-        }
-
         private void LoadCheckBoxes()
         {
             try
             {
-                using (DatabaseHelper dbHelper = new DatabaseHelper())
+                var members = DatabaseOperations.GetMemberCheckBoxes();
+                foreach (var member in members)
                 {
-                    string query = "SELECT Member_ID, Member_Name FROM Members";
-                    using (SqlDataReader reader = dbHelper.ExecuteReader(query))
+                    CheckBox checkBox = new CheckBox
                     {
-                        while (reader.Read())
-                        {
-                            CheckBox checkBox = new CheckBox
-                            {
-                                Text = reader["Member_Name"].ToString(),
-                                Tag = reader["Member_ID"],
-                                AutoSize = true,
-                                Margin = new Padding(10),
-                                Font = new Font("Times New Roman", 14)
-                            };
+                        Text = member.MemberName,
+                        Tag = member.MemberId,
+                        AutoSize = true,
+                        Margin = new Padding(10),
+                        Font = new Font("Times New Roman", 14)
+                    };
 
-                            // Add the checkbox to the FlowLayoutPanel
-                            flowLayout.Controls.Add(checkBox);
-                        }
-                    }
+                    // Add the checkbox to the FlowLayoutPanel
+                    flowLayout.Controls.Add(checkBox);
                 }
             }
             catch (Exception ex)
@@ -149,25 +138,10 @@ namespace Travel_expense_Splitter
         {
             try
             {
-                using (DatabaseHelper dbHelper = new DatabaseHelper())
+                _expenseList = DatabaseOperations.GetMembers();
+                foreach (var member in _expenseList)
                 {
-                    string query = "SELECT * FROM Members";
-                    using (SqlDataReader reader = dbHelper.ExecuteReader(query))
-                    {
-                        DataTable ExpenseTable = new DataTable();
-                        ExpenseTable.Load(reader);
-
-                        foreach (DataRow row in ExpenseTable.Rows)
-                        {
-                            ExpenseAdapter _obj = new ExpenseAdapter
-                            {
-                                member_name = row["Member_Name"].ToString(),
-                                Payer_id = Convert.ToInt32(row["Member_ID"])
-                            };
-                            _expenseList.Add(_obj);
-                            PayerBox.Items.Add(row["Member_Name"].ToString());
-                        }
-                    }
+                    PayerBox.Items.Add(member.member_name);
                 }
             }
             catch (Exception ex)
@@ -215,7 +189,7 @@ namespace Travel_expense_Splitter
             this.Hide();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+     /*   private void button4_Click(object sender, EventArgs e)
         {
             if (arrow)
             {
@@ -229,7 +203,7 @@ namespace Travel_expense_Splitter
                 button4.BackgroundImage = Properties.Resources.arrowUp;
                 panel5.Show();
             }
-        }
+        }*/
     }
 }
 

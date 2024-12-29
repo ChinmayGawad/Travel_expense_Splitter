@@ -51,6 +51,12 @@
     <Compile Include="Adapter\ExpenseAdapter.cs" />
     <Compile Include="Adapter\UserSession.cs" />
     <Compile Include="Adapter\ValidationHelper.cs" />
+    <Compile Include="addTrip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addTrip.Designer.cs">
+      <DependentUpon>addTrip.cs</DependentUpon>
+    </Compile>
     <Compile Include="Add_members.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include=".editorconfig" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -3,7 +3,6 @@ using System.Data.SqlClient;
 using Travel_expense_Splitter.Adapter;
 using System.Collections.Generic;
 using System.Data;
-using System.Xml.Linq;
 
 namespace Travel_expense_Splitter
 {
@@ -76,15 +75,12 @@ namespace Travel_expense_Splitter
                 string query = "SELECT * FROM Members";
                 using (SqlDataReader reader = dbHelper.ExecuteReader(query))
                 {
-                    DataTable ExpenseTable = new DataTable();
-                    ExpenseTable.Load(reader);
-
-                    foreach (DataRow row in ExpenseTable.Rows)
+                    while (reader.Read())
                     {
                         ExpenseAdapter member = new ExpenseAdapter
                         {
-                            member_name = row["Member_Name"].ToString(),
-                            Payer_id = Convert.ToInt32(row["Member_ID"])
+                            member_name = reader["Member_Name"].ToString(),
+                            Payer_id = Convert.ToInt32(reader["Member_ID"])
                         };
                         members.Add(member);
                     }
@@ -93,20 +89,28 @@ namespace Travel_expense_Splitter
             return members;
         }
 
-        public static SqlDataReader GetMemberCheckBoxes()
+        public static List<(int MemberId, string MemberName)> GetMemberCheckBoxes()
         {
+            List<(int MemberId, string MemberName)> members = new List<(int MemberId, string MemberName)>();
             using (DatabaseHelper dbHelper = new DatabaseHelper())
             {
                 string query = "SELECT Member_ID, Member_Name FROM Members";
-                return dbHelper.ExecuteReader(query);
+                using (SqlDataReader reader = dbHelper.ExecuteReader(query))
+                {
+                    while (reader.Read())
+                    {
+                        members.Add((reader.GetInt32(0), reader.GetString(1)));
+                    }
+                }
             }
+            return members;
         }
 
-        public static int AddExpense(string expense_name, string amount, int memberid, DateTime dateTime, string checkedMembers, int loginId)
+        public static int AddExpense(string expense_name, string amount, int memberid, DateTime dateTime, string checkedMembers, int loginId, int tripId)
         {
             using (DatabaseHelper dbHelper = new DatabaseHelper())
             {
-                string query = "INSERT INTO Expense (Description, Amount, Payer_ID, Date, CheckedMembers, Login_ID) VALUES (@expense_name, @amount, @memberid, @dateTime, @checkedMembers, @loginId)";
+                string query = "INSERT INTO Expense (Description, Amount, Payer_ID, Date, CheckedMembers, Login_ID, Trip_ID) VALUES (@expense_name, @amount, @memberid, @dateTime, @checkedMembers, @loginId, @tripId)";
                 using (SqlCommand cmd = new SqlCommand(query, dbHelper.Connection))
                 {
                     cmd.Parameters.AddWithValue("@expense_name", expense_name);
@@ -115,22 +119,65 @@ namespace Travel_expense_Splitter
                     cmd.Parameters.AddWithValue("@dateTime", dateTime);
                     cmd.Parameters.AddWithValue("@checkedMembers", checkedMembers);
                     cmd.Parameters.AddWithValue("@loginId", loginId);
+                    cmd.Parameters.AddWithValue("@tripId", tripId);
 
                     return cmd.ExecuteNonQuery();
                 }
             }
         }
 
-        public static SqlDataReader GetExpenseDetails()
+        public static List<(int MemberId, string MemberName, int Amount, string CheckedMembers, string Username)> GetExpenseDetails(int tripId)
         {
-
+            List<(int MemberId, string MemberName, int Amount, string CheckedMembers, string Username)> expenses = new List<(int MemberId, string MemberName, int Amount, string CheckedMembers, string Username)>();
             using (DatabaseHelper dbHelper = new DatabaseHelper())
             {
                 string query = @"SELECT mb.Member_ID, mb.Member_Name, Ex.Amount, Ex.CheckedMembers, lt.username 
                                  FROM Members mb 
                                  JOIN Expense Ex ON Ex.Payer_ID = mb.Member_ID
-                                 JOIN login_table lt ON Ex.Login_ID = lt.Login_ID";
-                return dbHelper.ExecuteReader(query);
+                                 JOIN login_table lt ON Ex.Login_ID = lt.Login_ID
+                                 WHERE Ex.Trip_ID = @tripId";
+                using (SqlCommand cmd = new SqlCommand(query, dbHelper.Connection))
+                {
+                    cmd.Parameters.AddWithValue("@tripId", tripId);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            expenses.Add((reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.IsDBNull(3) ? string.Empty : reader.GetString(3), reader.GetString(4)));
+                        }
+                    }
+                }
+            }
+            return expenses;
+        }
+
+        public static List<(int TripId, string TripName)> GetTrips()
+        {
+            List<(int TripId, string TripName)> trips = new List<(int TripId, string TripName)>();
+            using (DatabaseHelper dbHelper = new DatabaseHelper())
+            {
+                string query = "SELECT Trip_ID, Trip_Name FROM Trip";
+                using (SqlDataReader reader = dbHelper.ExecuteReader(query))
+                {
+                    while (reader.Read())
+                    {
+                        trips.Add((reader.GetInt32(0), reader.GetString(1)));
+                    }
+                }
+            }
+            return trips;
+        }
+
+        public static int AddTrip(string tripName)
+        {
+            using (DatabaseHelper dbHelper = new DatabaseHelper())
+            {
+                string query = "INSERT INTO Trip (Trip_Name) VALUES (@tripName)";
+                using (SqlCommand cmd = new SqlCommand(query, dbHelper.Connection))
+                {
+                    cmd.Parameters.AddWithValue("@tripName", tripName);
+                    return cmd.ExecuteNonQuery();
+                }
             }
         }
 
@@ -142,22 +189,19 @@ namespace Travel_expense_Splitter
             }
             using (DatabaseHelper dbHelper = new DatabaseHelper())
             {
-
                 string[] memberIds = checkedMembers.Split(',');
                 string query = "SELECT Member_Name FROM Members WHERE Member_ID IN (" + string.Join(",", memberIds) + ")";
-                SqlDataReader reader = dbHelper.ExecuteReader(query);
-
-                List<string> memberNames = new List<string>();
-                while (reader.Read())
+                using (SqlDataReader reader = dbHelper.ExecuteReader(query))
                 {
-                    memberNames.Add(reader.GetString(0));
+                    List<string> memberNames = new List<string>();
+                    while (reader.Read())
+                    {
+                        memberNames.Add(reader.GetString(0));
+                    }
+                    return string.Join(", ", memberNames);
                 }
-
-                reader.Close();
-                return string.Join(", ", memberNames);
             }
         }
-
 
         public static int SignUpUser(string username, string email, string password)
         {
@@ -206,6 +250,8 @@ namespace Travel_expense_Splitter
             }
         }
     }
-
 }
+
+
+
 
