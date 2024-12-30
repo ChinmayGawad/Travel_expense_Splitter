@@ -34,6 +34,11 @@ namespace Travel_expense_Splitter
                 MessageBox.Show("Error adding trip: " + ex.Message);
             }
         }
+
+        private void addTrip_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

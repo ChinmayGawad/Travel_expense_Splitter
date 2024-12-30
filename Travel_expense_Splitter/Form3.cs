@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using Travel_expense_Splitter.Adapter;
-
+                            
 namespace Travel_expense_Splitter
 {
     public partial class Form3 : Form
@@ -16,6 +16,7 @@ namespace Travel_expense_Splitter
         {
             InitializeComponent();
         }
+
 
         private void Form3_Load(object sender, EventArgs e)
         {
