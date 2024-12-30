@@ -278,5 +278,19 @@ namespace Travel_expense_Splitter
 
             return members;
         }
+
+        public static string GetUsername(int loginId)
+        {
+            using (DatabaseHelper dbHelper = new DatabaseHelper())
+            {
+                string query = "SELECT Username FROM login_table WHERE Login_ID = @loginId";
+                using (SqlCommand cmd = new SqlCommand(query, dbHelper.Connection))
+                {
+                    cmd.Parameters.AddWithValue("@loginId", loginId);
+                    return cmd.ExecuteScalar()?.ToString();
+                }
+            }
+        }
+
     }
 }
