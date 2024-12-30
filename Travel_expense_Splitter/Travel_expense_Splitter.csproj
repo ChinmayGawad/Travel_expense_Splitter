@@ -107,6 +107,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="addTrip.resx">
+      <DependentUpon>addTrip.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Add_members.resx">
       <DependentUpon>Add_members.cs</DependentUpon>
     </EmbeddedResource>
