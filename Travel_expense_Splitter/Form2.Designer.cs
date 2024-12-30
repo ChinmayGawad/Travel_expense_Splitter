@@ -42,7 +42,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.UsernameLabel = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -111,9 +111,10 @@
             this.Total_Members.BackColor = System.Drawing.Color.Transparent;
             this.Total_Members.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Total_Members.ForeColor = System.Drawing.Color.Black;
-            this.Total_Members.Location = new System.Drawing.Point(120, 79);
+            this.Total_Members.Location = new System.Drawing.Point(76, 64);
+            this.Total_Members.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Total_Members.Name = "Total_Members";
-            this.Total_Members.Size = new System.Drawing.Size(40, 46);
+            this.Total_Members.Size = new System.Drawing.Size(64, 73);
             this.Total_Members.TabIndex = 6;
             this.Total_Members.Text = "  ";
             this.Total_Members.Click += new System.EventHandler(this.Total_Members_Click);
@@ -124,9 +125,10 @@
             this.Total_Expenses.BackColor = System.Drawing.Color.Transparent;
             this.Total_Expenses.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Total_Expenses.ForeColor = System.Drawing.Color.Black;
-            this.Total_Expenses.Location = new System.Drawing.Point(126, 79);
+            this.Total_Expenses.Location = new System.Drawing.Point(84, 56);
+            this.Total_Expenses.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Total_Expenses.Name = "Total_Expenses";
-            this.Total_Expenses.Size = new System.Drawing.Size(40, 46);
+            this.Total_Expenses.Size = new System.Drawing.Size(64, 73);
             this.Total_Expenses.TabIndex = 7;
             this.Total_Expenses.Text = "  ";
             // 
@@ -199,7 +201,7 @@
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.UsernameLabel);
             this.panel1.Location = new System.Drawing.Point(1, 1);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
@@ -237,15 +239,6 @@
             this.panel2.Size = new System.Drawing.Size(72, 49);
             this.panel2.TabIndex = 1;
             // 
-            // panel6
-            // 
-            this.panel6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(289, 107);
-            this.panel6.TabIndex = 0;
-            // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -254,13 +247,29 @@
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Navy;
-            this.label3.Location = new System.Drawing.Point(84, 11);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(63, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(133, 26);
+            this.label3.Size = new System.Drawing.Size(108, 22);
             this.label3.TabIndex = 0;
             this.label3.Text = "VishwaSave";
             this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button4.BackColor = System.Drawing.Color.Transparent;
+            this.button4.BackgroundImage = global::Travel_expense_Splitter.Properties.Resources.arrowDown;
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Location = new System.Drawing.Point(176, 8);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(29, 24);
+            this.button4.TabIndex = 17;
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
             // 
             // panel5
             // 
@@ -353,7 +362,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label UsernameLabel;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Panel panel5;
