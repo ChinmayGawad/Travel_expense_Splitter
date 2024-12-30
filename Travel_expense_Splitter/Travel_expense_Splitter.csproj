@@ -47,8 +47,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapter\DatabaseHelper.cs" />
+    <Compile Include="Adapter\DatabaseOperations.cs" />
     <Compile Include="Adapter\ExpenseAdapter.cs" />
     <Compile Include="Adapter\UserSession.cs" />
+    <Compile Include="Adapter\ValidationHelper.cs" />
+    <Compile Include="addTrip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addTrip.Designer.cs">
+      <DependentUpon>addTrip.cs</DependentUpon>
+    </Compile>
     <Compile Include="Add_members.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +141,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include=".editorconfig" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -166,6 +175,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Green Full Photo Forest Desktop Wallpaper %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled design.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled_design-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled design %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled_design__2_-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled_design__3_-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled_design__1_-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrowDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrowUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\photo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

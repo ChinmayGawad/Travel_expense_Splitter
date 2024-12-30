@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Travel_expense_Splitter
@@ -31,5 +24,55 @@ namespace Travel_expense_Splitter
         {
 
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            string email = textBox1.Text.Trim();
+            string newPassword = textBox3.Text.Trim();
+            string confirmPassword = textBox2.Text.Trim();
+
+            // Validate fields
+            if (!ValidationHelper.IsValidEmail(email))
+            {
+                MessageBox.Show("Please enter a valid email address.");
+                textBox1.Focus();
+                return;
+            }
+
+            if (!ValidationHelper.IsValidPassword(newPassword))
+            {
+                MessageBox.Show("Password cannot be empty.");
+                textBox3.Focus();
+                return;
+            }
+
+            if (!ValidationHelper.IsPasswordMatch(newPassword, confirmPassword))
+            {
+                MessageBox.Show("Passwords do not match.");
+                textBox2.Focus();
+                return;
+            }
+
+            try
+            {
+                int rowsAffected = DatabaseOperations.UpdatePassword(email, newPassword);
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Password reset successfully!");
+                    Form1 login = new Form1();
+                    login.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to reset password. Please try again later.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
     }
 }
+

@@ -34,18 +34,13 @@ namespace Travel_expense_Splitter
                     username = TBUser.Text;
                     password = TBPass.Text;
 
-                    string query = "SELECT COUNT(*) FROM login_table WHERE (username = @username or Email = @username) AND pass = @password ";
 
-                    using (SqlCommand command = new SqlCommand(query, dbHelper.Connection))
-                    {
-                        command.Parameters.AddWithValue("@username", username);
-                        command.Parameters.AddWithValue("@password", password);
 
-                        int userCount = Convert.ToInt32(command.ExecuteScalar());
+                    int userCount = DatabaseOperations.GetUserCount(username, password);
 
-                        if (userCount > 0)
+                    if (userCount > 0)
                         {
-                            MessageBox.Show("Login successful!");
+                           //  MessageBox.Show("Login successful!");
                             UserSession.LoggedInUsername = username;
                             Dashbord dash = new Dashbord();
                             dash.Show();
@@ -58,7 +53,6 @@ namespace Travel_expense_Splitter
                             TBPass.Text = "";
                         }
                     }
-                }
             }
             catch (SqlException ex)
             {
@@ -76,7 +70,6 @@ namespace Travel_expense_Splitter
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            panel2.BackColor = System.Drawing.Color.FromArgb(120, 0, 0, 0);
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -101,10 +94,17 @@ namespace Travel_expense_Splitter
 
         }
 
-        private void SignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
             Form5 signup = new Form5();
             signup.Show();
+            this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form6 pass = new Form6();
+            pass.Show();
             this.Hide();
         }
     }

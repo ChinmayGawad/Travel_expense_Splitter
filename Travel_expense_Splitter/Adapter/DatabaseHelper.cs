@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace Travel_expense_Splitter.Adapter
@@ -34,10 +35,14 @@ namespace Travel_expense_Splitter.Adapter
 
         public SqlConnection Connection => _connection;
 
-        public SqlDataReader ExecuteReader(string query)
+        public SqlDataReader ExecuteReader(string query, SqlParameter[] parameters = null)
         {
             SqlCommand command = new SqlCommand(query, _connection);
-            return command.ExecuteReader();
+            if (parameters != null)
+            {
+                command.Parameters.AddRange(parameters);
+            }
+            return command.ExecuteReader(CommandBehavior.CloseConnection);
         }
 
         public void Dispose()

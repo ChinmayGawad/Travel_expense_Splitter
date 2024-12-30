@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Travel_expense_Splitter.Adapter;
 
@@ -14,6 +7,7 @@ namespace Travel_expense_Splitter
 {
     public partial class Dashbord : Form
     {
+        Boolean arrow=false;
         public Dashbord()
         {
             InitializeComponent();
@@ -21,15 +15,12 @@ namespace Travel_expense_Splitter
 
         private void Dashbord_Load(object sender, EventArgs e)
         {
-            panel3.BackColor = Color.FromArgb(100,0,0,0);
-            panel4.BackColor = Color.FromArgb(100, 0, 0, 0);
-            //DatabaseHelper databaseHelper = new DatabaseHelper();
-            //string query = "select sum(Amount) from Expense";
-            //int totalMembers = GetTotalMembers();
-            //Total_Members.Text = totalMembers.ToString();
+            DatabaseHelper databaseHelper = new DatabaseHelper();
+            int totalMembers = DatabaseOperations.GetTotalMembers();
+            Total_Members.Text = totalMembers.ToString();
 
-            //decimal total_Expense = GetTotalExpenses();
-            //Total_Expenses.Text = total_Expense.ToString("C");
+            decimal total_Expense = DatabaseOperations.GetTotalExpenses();
+            Total_Expenses.Text = total_Expense.ToString("C");
         }
 
         private void Total_Members_Click(object sender, EventArgs e)
@@ -67,35 +58,28 @@ namespace Travel_expense_Splitter
         {
 
         }
-        private int GetTotalMembers()
+
+        private void button4_Click_1(object sender, EventArgs e)
         {
-            using (DatabaseHelper dbHelper = new DatabaseHelper())
+            if (arrow)
             {
-                string query = "SELECT COUNT(*) FROM Members";
-                using (SqlCommand cmd = new SqlCommand(query, dbHelper.Connection))
-                {
-                    return (int)cmd.ExecuteScalar();
-                }
+                arrow = false;
+                button4.BackgroundImage = Properties.Resources.arrowDown;
+                panel5.Hide();
+            }
+            else
+            {
+                arrow = true;
+                button4.BackgroundImage = Properties.Resources.arrowUp;
+                panel5.Show();
             }
         }
-        private decimal GetTotalExpenses()
+
+        private void button5_Click(object sender, EventArgs e)
         {
-            using (DatabaseHelper dbHelper = new DatabaseHelper())
-            {
-                string query = "SELECT SUM(Amount) FROM Expense";
-                using (SqlCommand cmd = new SqlCommand(query, dbHelper.Connection))
-                {
-                    object result = cmd.ExecuteScalar();
-                    if (result == DBNull.Value)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return Convert.ToDecimal(result);
-                    }
-                }
-            }
+            Form1 form1 = new Form1();
+            form1.Show();
+            this.Hide();
         }
     }
 }

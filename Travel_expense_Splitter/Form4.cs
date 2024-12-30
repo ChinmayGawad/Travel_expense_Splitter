@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 using Travel_expense_Splitter.Adapter;
 
@@ -10,6 +9,7 @@ namespace Travel_expense_Splitter
 {
     public partial class Form4 : Form
     {
+        Boolean arrow = false;
         public Form4()
         {
             InitializeComponent();
@@ -17,113 +17,120 @@ namespace Travel_expense_Splitter
 
         private void Form4_Load(object sender, EventArgs e)
         {
-            panel1.BackColor = Color.FromArgb(100, 0, 0, 0);
+            LoadTrips();
+        }
 
-            //using (DatabaseHelper dbHelper = new DatabaseHelper())
-            //{
-            //    string query = @"SELECT mb.Member_ID, mb.Member_Name, Ex.Amount, Ex.CheckedMembers, lt.username 
-            //                     FROM Members mb 
-            //                     JOIN Expense Ex ON Ex.Payer_ID = mb.Member_ID
-            //                     JOIN login_table lt ON Ex.Login_ID = lt.Login_ID";
-            //    SqlDataReader reader = dbHelper.ExecuteReader(query);
+        private void LoadTrips()
+        {
+            try
+            {
+                var trips = DatabaseOperations.GetTrips();
+                cbTrips.Items.Clear();
+                foreach (var trip in trips)
+                {
+                    cbTrips.Items.Add(new { trip.TripId, trip.TripName });
+                }
+                cbTrips.DisplayMember = "TripName";
+                cbTrips.ValueMember = "TripId";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading trips: " + ex.Message);
+            }
+        }
 
+        private void cbTrips_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbTrips.SelectedItem != null)
+            {
+                int selectedTripId = (cbTrips.SelectedItem as dynamic).TripId;
+                LoadExpensesForTrip(selectedTripId);
+            }
+        }
 
+        private void LoadExpensesForTrip(int tripId)
+        {
+            try
+            {
+                var memberData = DatabaseOperations.GetExpenseDetails(tripId);
 
-            //    var memberData = new List<(int MemberId, string MemberName, int Amount, string CheckedMembers , string Username)>();
+                tabControl1.TabPages.Clear();
 
-            //    while (reader.Read())
-            //    {
-            //        memberData.Add((reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.IsDBNull(3) ? string.Empty : reader.GetString(3), reader.GetString(4)));
-            //    }
+                foreach (var data in memberData)
+                {
+                    // Create a new tab for each member
+                    TabPage tp1 = new TabPage(data.MemberName);
+                    tabControl1.TabPages.Add(tp1);
 
-            //    reader.Close();
-
-            //    foreach (var data in memberData)
-            //    {
-            //        // Create a new tab for each member
-            //        TabPage tp1 = new TabPage(data.MemberName);
-            //        tabControl1.TabPages.Add(tp1);
-
-
-            //        // Add controls to the tab
-            //        Label l1 = new Label();
-            //        l1.Text = "Total amount to be received";
-            //        l1.Font = new Font("Times New Roman", 12, FontStyle.Bold);
-            //        l1.Location = new Point(10, 5);
-            //        l1.AutoSize = true;
-
-            //        TextBox l2 = new TextBox();
-            //        l2.Text = data.Amount.ToString("C"); 
-            //        l2.Enabled = false;
-            //        l2.Location = new Point(220, 5);
-
-
-
-            //        // Display checked members
-            //        Label l3 = new Label();
-            //        l3.Text = " Members: " + GetMemberNames(data.CheckedMembers, dbHelper);
-            //        l3.Font = new Font("Times New Roman", 12, FontStyle.Bold);
-            //        l3.Location = new Point(10, 35);
-            //        l3.AutoSize = true;
-
-            //        // Calculate share amount
-            //        string[] memberIds = data.CheckedMembers.Split(',');
-            //        int numberOfMembers = memberIds.Length;
-            //        decimal shareAmount = data.Amount / numberOfMembers;
-
-            //        Label l4 = new Label();
-            //        l4.Text = "Amount to be paid by each member: " + shareAmount.ToString("C");
-            //        l4.Font = new Font("Times New Roman", 12, FontStyle.Bold);
-            //        l4.Location = new Point(10, 65);
-            //        l4.AutoSize = true;
+                    // Add controls to the tab
+                    Label l1 = new Label();
+                    l1.Text = "Total amount to be received";
+                    l1.Font = new Font("Times New Roman", 12, FontStyle.Bold);
+                    l1.Location = new Point(10, 5);
+                    l1.AutoSize = true;
 
 
+                    TextBox l2 = new TextBox();
+                    l2.Text = data.Amount.ToString("C");
+                    l2.Enabled = false;
+                    l2.Location = new Point(220, 5);
 
 
-            //        Label l5 = new Label();
-            //        l5.Text = "Entry Done By: " + data.Username;
-            //        l5.Font = new Font("Times New Roman", 12, FontStyle.Bold);
-            //        l5.Location = new Point(10, 95);
-            //        l5.AutoSize = true;
+                    Label l6 = new Label();
+                    l6.Text = "Expense Name: " + data.ExpenseName;
+                    l6.Font = new Font("Times New Roman", 12, FontStyle.Bold);
+                    l6.Location = new Point(10, 35);
+                    l6.AutoSize = true;
+
+                    // Display checked members
+                    Label l3 = new Label();
+                    l3.Text = " Members: " + DatabaseOperations.GetMemberNames(data.CheckedMembers);
+                    l3.Font = new Font("Times New Roman", 12, FontStyle.Bold);
+                    l3.Location = new Point(10, 65);
+                    l3.AutoSize = true;
+
+                    // Calculate share amount
+                    string[] memberIds = data.CheckedMembers.Split(',');
+                    int numberOfMembers = memberIds.Length;
+                    decimal shareAmount = data.Amount / numberOfMembers;
+
+                    Label l4 = new Label();
+                    l4.Text = "Amount to be paid by each member: " + shareAmount.ToString("C");
+                    l4.Font = new Font("Times New Roman", 12, FontStyle.Bold);
+                    l4.Location = new Point(10, 95);
+                    l4.AutoSize = true;
+
+                    // Display the username who made the entry
+                    Label l5 = new Label();
+                    l5.Text = "Entry Done By: " + data.Username;
+                    l5.Font = new Font("Times New Roman", 12, FontStyle.Bold);
+                    l5.Location = new Point(10, 125);
+                    l5.AutoSize = true;
 
 
+                    
 
+                    tp1.Controls.Add(l1);
+                    tp1.Controls.Add(l2);
+                    tp1.Controls.Add(l3);
+                    tp1.Controls.Add(l4);
+                    tp1.Controls.Add(l5);
+                    tp1.Controls.Add(l6);
 
-            //        tp1.Controls.Add(l1);
-            //        tp1.Controls.Add(l2);
-            //        tp1.Controls.Add(l3);
-            //        tp1.Controls.Add(l4);
-            //        tp1.Controls.Add(l5);
-            //    }
-            //}
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Dashbord dashbord = new Dashbord();
             dashbord.Show();
-            this.Hide();
-        }
-
-        private string GetMemberNames(string checkedMembers, DatabaseHelper dbHelper)
-        {
-            if (string.IsNullOrEmpty(checkedMembers))
-            {
-                return "None";
-            }
-
-            string[] memberIds = checkedMembers.Split(',');
-            string query = "SELECT Member_Name FROM Members WHERE Member_ID IN (" + string.Join(",", memberIds) + ")";
-            SqlDataReader reader = dbHelper.ExecuteReader(query);
-
-            List<string> memberNames = new List<string>();
-            while (reader.Read())
-            {
-                memberNames.Add(reader.GetString(0));
-            }
-
-            reader.Close();
-            return string.Join(", ", memberNames);
+            this.Close();
         }
     }
 }
+
