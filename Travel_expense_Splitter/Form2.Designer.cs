@@ -241,18 +241,20 @@
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Navy;
-            this.label3.Location = new System.Drawing.Point(63, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 22);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "VishwaSave";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.UsernameLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.UsernameLabel.AutoSize = true;
+            this.UsernameLabel.BackColor = System.Drawing.Color.Transparent;
+            this.UsernameLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UsernameLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UsernameLabel.ForeColor = System.Drawing.Color.Navy;
+            this.UsernameLabel.Location = new System.Drawing.Point(63, 9);
+            this.UsernameLabel.Name = "label3";
+            this.UsernameLabel.Size = new System.Drawing.Size(108, 22);
+            this.UsernameLabel.TabIndex = 0;
+            this.UsernameLabel.Text = "VishwaSave";
+            this.UsernameLabel.Click += new System.EventHandler(this.label3_Click);
+
+            this.Controls.Add(this.UsernameLabel);
             // 
             // button4
             // 
