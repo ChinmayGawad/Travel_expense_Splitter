@@ -38,13 +38,13 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.flowLayout = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.lblTrip = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblAmount = new System.Windows.Forms.Label();
             this.lblPayer = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -154,15 +154,28 @@
             this.panel1.Size = new System.Drawing.Size(604, 537);
             this.panel1.TabIndex = 8;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label1.Location = new System.Drawing.Point(214, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(173, 31);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Log Expenses";
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.BackgroundImage = global::Travel_expense_Splitter.Properties.Resources.Untitled_design_removebg_preview;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Location = new System.Drawing.Point(17, 9);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(49, 44);
             this.button1.TabIndex = 13;
@@ -223,18 +236,6 @@
             this.lblDate.Size = new System.Drawing.Size(53, 21);
             this.lblDate.TabIndex = 12;
             this.lblDate.Text = "Date :";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label1.Location = new System.Drawing.Point(214, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(173, 31);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Log Expenses";
             // 
             // Form3
             // 
