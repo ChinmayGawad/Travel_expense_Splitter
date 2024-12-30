@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Travel_expense_Splitter
 {
@@ -50,13 +51,19 @@ namespace Travel_expense_Splitter
             if (!int.TryParse(mem_phone, out int phoneNo))
             {
                 MessageBox.Show("Please enter a valid phone number.");
-                return; // Exit the method if conversion fails
+                return; 
+            }
+            if (!ValidationHelper.IsValidEmail(mem_email))
+            {
+                MessageBox.Show("Please enter Valid Email !!!");
+                tbEmail.Focus(); 
+                return;
             }
 
             if (comboBox1.SelectedItem == null)
             {
                 MessageBox.Show("Please select a trip.");
-                return; // Exit the method if no trip is selected
+                return; 
             }
 
             ComboBoxItem selectedTrip = (ComboBoxItem)comboBox1.SelectedItem;
@@ -111,28 +118,9 @@ namespace Travel_expense_Splitter
             this.Hide();
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            if (arrow)
-            {
-                arrow = false;
-                button4.BackgroundImage = Properties.Resources.arrowDown;
-                panel5.Hide();
-            }
-            else
-            {
-                arrow = true;
-                button4.BackgroundImage = Properties.Resources.arrowUp;
-                panel5.Show();
-            }
-        }
+       
 
-        private void button5_Click_1(object sender, EventArgs e)
-        {
-            Form1 form1 = new Form1();
-            form1.Show();
-            this.Hide();
-        }
+       
     }
 
     public class ComboBoxItem

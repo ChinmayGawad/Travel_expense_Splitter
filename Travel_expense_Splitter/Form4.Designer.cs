@@ -31,18 +31,20 @@
             // 
             this.cbTrips.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTrips.FormattingEnabled = true;
-            this.cbTrips.Location = new System.Drawing.Point(92, 67);
+            this.cbTrips.Location = new System.Drawing.Point(123, 82);
+            this.cbTrips.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbTrips.Name = "cbTrips";
-            this.cbTrips.Size = new System.Drawing.Size(200, 21);
+            this.cbTrips.Size = new System.Drawing.Size(265, 24);
             this.cbTrips.TabIndex = 0;
             this.cbTrips.SelectedIndexChanged += new System.EventHandler(this.cbTrips_SelectedIndexChanged);
             // 
             // tabControl1
             // 
-            this.tabControl1.Location = new System.Drawing.Point(92, 104);
+            this.tabControl1.Location = new System.Drawing.Point(123, 128);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(500, 243);
+            this.tabControl1.Size = new System.Drawing.Size(667, 299);
             this.tabControl1.TabIndex = 1;
             // 
             // button1
@@ -54,9 +56,10 @@
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(92, 383);
+            this.button1.Location = new System.Drawing.Point(123, 471);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(93, 41);
+            this.button1.Size = new System.Drawing.Size(124, 50);
             this.button1.TabIndex = 2;
             this.button1.Text = "Back";
             this.button1.UseVisualStyleBackColor = false;
@@ -71,9 +74,10 @@
             this.panel1.Controls.Add(this.cbTrips);
             this.panel1.Controls.Add(this.tabControl1);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Location = new System.Drawing.Point(265, 95);
+            this.panel1.Location = new System.Drawing.Point(353, 117);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(693, 460);
+            this.panel1.Size = new System.Drawing.Size(924, 566);
             this.panel1.TabIndex = 3;
             // 
             // label1
@@ -82,24 +86,26 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(279, 17);
+            this.label1.Location = new System.Drawing.Point(372, 21);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(200, 36);
+            this.label1.Size = new System.Drawing.Size(251, 45);
             this.label1.TabIndex = 3;
             this.label1.Text = "View Balance";
             // 
             // Form4
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Travel_expense_Splitter.Properties.Resources.Green_Full_Photo_Forest_Desktop_Wallpaper__1_1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1166, 670);
+            this.ClientSize = new System.Drawing.Size(1555, 825);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form4";
             this.Text = "View Expenses";
-            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form4_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

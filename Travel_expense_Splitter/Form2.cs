@@ -36,7 +36,7 @@ namespace Travel_expense_Splitter
         {
             Add_members add_Members = new Add_members();
             add_Members.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -48,14 +48,14 @@ namespace Travel_expense_Splitter
         {
             Form3 form3 = new Form3();
             form3.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             Form4 viewBalance = new Form4();
             viewBalance.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void label3_Click(object sender, EventArgs e)

@@ -129,7 +129,7 @@ namespace Travel_expense_Splitter
         {
             Dashbord dashbord = new Dashbord();
             dashbord.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void button1_MouseHover(object sender, EventArgs e)

@@ -300,7 +300,7 @@
             this.panel7.BackColor = System.Drawing.Color.Transparent;
             this.panel7.Controls.Add(this.panel1);
             this.panel7.Controls.Add(this.panel5);
-            this.panel7.Location = new System.Drawing.Point(1389, 13);
+            this.panel7.Location = new System.Drawing.Point(1409, -18);
             this.panel7.Margin = new System.Windows.Forms.Padding(4);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(292, 107);
