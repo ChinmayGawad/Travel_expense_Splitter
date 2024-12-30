@@ -21,6 +21,10 @@ namespace Travel_expense_Splitter
 
             decimal total_Expense = DatabaseOperations.GetTotalExpenses();
             Total_Expenses.Text = total_Expense.ToString("C");
+
+            int loginId = DatabaseOperations.GetLoginId(UserSession.LoggedInUsername);
+            string username = DatabaseOperations.GetUsername(loginId);
+            UsernameLabel.Text = username;
         }
 
         private void Total_Members_Click(object sender, EventArgs e)
