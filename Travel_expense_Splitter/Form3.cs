@@ -19,24 +19,23 @@ namespace Travel_expense_Splitter
 
         private void Form3_Load(object sender, EventArgs e)
         {
-            panel1.BackColor = Color.FromArgb(100, 0, 0, 0);
-            if (string.IsNullOrEmpty(UserSession.LoggedInUsername))
-            {
-                MessageBox.Show("User is not logged in.");
-                Dashbord dashbord = new Dashbord();
-                dashbord.Show();
-                this.Close();
-                return;
-            }
+            //if (string.IsNullOrEmpty(UserSession.LoggedInUsername))
+            //{
+            //    MessageBox.Show("User is not logged in.");
+            //    Dashbord dashbord = new Dashbord();
+            //    dashbord.Show();
+            //    this.Close();
+            //    return;
+            //}
 
-            // Initialize the connection string
-            string connectionString = "Server=CHINMAY-N3P5PKK\\SQLEXPRESS;Database=travel_expenses;Integrated Security=True;";
-            DatabaseHelper.ConnectionString = connectionString;
+            //// Initialize the connection string
+            //string connectionString = "Server=CHINMAY-N3P5PKK\\SQLEXPRESS;Database=travel_expenses;Integrated Security=True;";
+            //DatabaseHelper.ConnectionString = connectionString;
 
-            // Retrieve the login ID based on the logged-in user
-            loginId = DatabaseOperations.GetLoginId(UserSession.LoggedInUsername);
-            LoadTrips();
-            cbTrips.SelectedIndexChanged += cbTrips_SelectedIndexChanged;
+            //// Retrieve the login ID based on the logged-in user
+            //loginId = DatabaseOperations.GetLoginId(UserSession.LoggedInUsername);
+            //LoadTrips();
+            //cbTrips.SelectedIndexChanged += cbTrips_SelectedIndexChanged;
         }
 
         private void LoadTrips()
