@@ -23,6 +23,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -30,7 +31,7 @@
             // 
             this.cbTrips.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTrips.FormattingEnabled = true;
-            this.cbTrips.Location = new System.Drawing.Point(50, 30);
+            this.cbTrips.Location = new System.Drawing.Point(92, 67);
             this.cbTrips.Name = "cbTrips";
             this.cbTrips.Size = new System.Drawing.Size(200, 21);
             this.cbTrips.TabIndex = 0;
@@ -38,44 +39,75 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Location = new System.Drawing.Point(50, 70);
+            this.tabControl1.Location = new System.Drawing.Point(92, 104);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(600, 300);
+            this.tabControl1.Size = new System.Drawing.Size(500, 243);
             this.tabControl1.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(50, 400);
+            this.button1.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button1.FlatAppearance.BorderSize = 100;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(92, 383);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(93, 41);
             this.button1.TabIndex = 2;
             this.button1.Text = "Back";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.MouseHover += new System.EventHandler(this.button1_MouseHover);
             // 
             // panel1
             // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.cbTrips);
             this.panel1.Controls.Add(this.tabControl1);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(265, 95);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(700, 450);
+            this.panel1.Size = new System.Drawing.Size(693, 460);
             this.panel1.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(279, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(200, 36);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "View Balance";
             // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 500);
+            this.BackgroundImage = global::Travel_expense_Splitter.Properties.Resources.Green_Full_Photo_Forest_Desktop_Wallpaper__1_1;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1166, 670);
             this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
             this.Name = "Form4";
             this.Text = "View Expenses";
+            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.Load += new System.EventHandler(this.Form4_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
+
         }
+
+        private System.Windows.Forms.Label label1;
     }
 }
 

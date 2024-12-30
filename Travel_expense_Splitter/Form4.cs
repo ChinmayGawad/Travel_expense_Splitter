@@ -131,6 +131,11 @@ namespace Travel_expense_Splitter
             dashbord.Show();
             this.Close();
         }
+
+        private void button1_MouseHover(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
