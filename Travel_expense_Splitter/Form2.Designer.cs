@@ -114,7 +114,7 @@
             this.Total_Members.Location = new System.Drawing.Point(76, 64);
             this.Total_Members.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Total_Members.Name = "Total_Members";
-            this.Total_Members.Size = new System.Drawing.Size(64, 73);
+            this.Total_Members.Size = new System.Drawing.Size(40, 46);
             this.Total_Members.TabIndex = 6;
             this.Total_Members.Text = "  ";
             this.Total_Members.Click += new System.EventHandler(this.Total_Members_Click);
@@ -128,7 +128,7 @@
             this.Total_Expenses.Location = new System.Drawing.Point(84, 56);
             this.Total_Expenses.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Total_Expenses.Name = "Total_Expenses";
-            this.Total_Expenses.Size = new System.Drawing.Size(64, 73);
+            this.Total_Expenses.Size = new System.Drawing.Size(40, 46);
             this.Total_Expenses.TabIndex = 7;
             this.Total_Expenses.Text = "  ";
             // 
@@ -199,14 +199,15 @@
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.UsernameLabel);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.UsernameLabel);
-            this.panel1.Location = new System.Drawing.Point(1, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Location = new System.Drawing.Point(4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(289, 49);
             this.panel1.TabIndex = 16;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // button4
             // 
@@ -218,10 +219,10 @@
             this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(235, 10);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button4.Location = new System.Drawing.Point(216, 16);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(39, 30);
+            this.button4.Size = new System.Drawing.Size(29, 24);
             this.button4.TabIndex = 17;
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click_1);
@@ -234,12 +235,19 @@
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel2.Controls.Add(this.panel6);
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(72, 49);
             this.panel2.TabIndex = 1;
             // 
-            // label3
+            // panel6
+            // 
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(200, 100);
+            this.panel6.TabIndex = 0;
+            // 
+            // UsernameLabel
             // 
             this.UsernameLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.UsernameLabel.AutoSize = true;
@@ -247,31 +255,12 @@
             this.UsernameLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.UsernameLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UsernameLabel.ForeColor = System.Drawing.Color.Navy;
-            this.UsernameLabel.Location = new System.Drawing.Point(63, 9);
-            this.UsernameLabel.Name = "label3";
-            this.UsernameLabel.Size = new System.Drawing.Size(108, 22);
+            this.UsernameLabel.Location = new System.Drawing.Point(76, 12);
+            this.UsernameLabel.Name = "UsernameLabel";
+            this.UsernameLabel.Size = new System.Drawing.Size(133, 26);
             this.UsernameLabel.TabIndex = 0;
             this.UsernameLabel.Text = "VishwaSave";
             this.UsernameLabel.Click += new System.EventHandler(this.label3_Click);
-
-            this.Controls.Add(this.UsernameLabel);
-            // 
-            // button4
-            // 
-            this.button4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button4.BackColor = System.Drawing.Color.Transparent;
-            this.button4.BackgroundImage = global::Travel_expense_Splitter.Properties.Resources.arrowDown;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(176, 8);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(29, 24);
-            this.button4.TabIndex = 17;
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click_1);
             // 
             // panel5
             // 
@@ -280,7 +269,7 @@
             this.panel5.Controls.Add(this.button5);
             this.panel5.ForeColor = System.Drawing.Color.Blue;
             this.panel5.Location = new System.Drawing.Point(72, 49);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(219, 58);
             this.panel5.TabIndex = 17;
@@ -297,7 +286,7 @@
             this.button5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.button5.Location = new System.Drawing.Point(4, 4);
-            this.button5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(167, 50);
             this.button5.TabIndex = 19;
@@ -311,8 +300,8 @@
             this.panel7.BackColor = System.Drawing.Color.Transparent;
             this.panel7.Controls.Add(this.panel1);
             this.panel7.Controls.Add(this.panel5);
-            this.panel7.Location = new System.Drawing.Point(1451, -14);
-            this.panel7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel7.Location = new System.Drawing.Point(1389, 13);
+            this.panel7.Margin = new System.Windows.Forms.Padding(4);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(292, 107);
             this.panel7.TabIndex = 18;
