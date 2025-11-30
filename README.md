@@ -1,4 +1,4 @@
-Travel Expense Splitter
+#Travel Expense Splitter
 
 A Windows Forms (.NET) application that helps users manage trips, add members, record expenses, and automatically split the total cost among participants.
 The project uses a structured architecture with adapter/helper classes for database operations, session management, and validation.
