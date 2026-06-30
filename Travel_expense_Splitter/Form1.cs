@@ -70,6 +70,19 @@ namespace Travel_expense_Splitter
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // Enable double buffering for the form's painting
+            this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer, true);
+            this.UpdateStyles();
+
+            // If you create or modify many controls at startup, wrap in SuspendLayout/ResumeLayout
+            this.SuspendLayout();
+            // ... any heavy UI initialization here ...
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+            // Use the actual panel declared in the designer (panel2). Call null-safe.
+            panel2?.SetDoubleBuffered();
+            // if you have a DataGridView: grid.SetDoubleBuffered(); // using the extension above
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
